@@ -14,8 +14,3 @@ CREATE TABLE groceries (
 /*  Execute this file from the command line by typing:
  *    mysql -u root < schema.sql
  *  to create the database and the tables.*/
-
-INSERT INTO groceries (quantity, description) VALUES (5, "frozen pizza");
-INSERT INTO groceries (quantity, description) VALUES (10, "noosa yogurt");
-INSERT INTO groceries (quantity, description) VALUES (2, "wine");
-INSERT INTO groceries (quantity, description) VALUES (1, "iced coffe");
