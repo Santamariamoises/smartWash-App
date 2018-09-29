@@ -19,8 +19,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.15.0",
+    "firebase": "^5.5.2",
     "jquery": "^3.1.1",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router-dom": "^4.3.1"
   }
 }

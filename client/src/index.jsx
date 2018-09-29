@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Laundry from './components/laundry.jsx'
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import Auth from './Auth.jsx';
+import Navigation from "./components/Navigation.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +15,17 @@ class App extends React.Component {
 
   render () {
     return (
+      <BrowserRouter>
+        <div>
+        <Navigation />
+          <Switch>
+            <Route exact path="/" component={Auth} />
+            <Route  component={Error} />
+          </Switch>
+
+        </div>
+      </BrowserRouter>
       // <h1> Smart Wash</h1>
-        <Laundry />
     )
   }
 }
