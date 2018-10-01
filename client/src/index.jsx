@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Auth from './Auth.jsx';
 import Navigation from "./components/Navigation.jsx";
+// import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class App extends React.Component {
 
         </div>
       </BrowserRouter>
-      // <h1> Smart Wash</h1>
     )
   }
 }
