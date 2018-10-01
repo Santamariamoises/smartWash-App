@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Laundry from './components/laundry.jsx'
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import Auth from './Auth.jsx';
+import Navigation from "./components/Navigation.jsx";
+// import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +16,16 @@ class App extends React.Component {
 
   render () {
     return (
-      // <h1> Smart Wash</h1>
-        <Laundry />
+      <BrowserRouter>
+        <div>
+        <Navigation />
+          <Switch>
+            <Route exact path="/" component={Auth} />
+            <Route  component={Error} />
+          </Switch>
+
+        </div>
+      </BrowserRouter>
     )
   }
 }
