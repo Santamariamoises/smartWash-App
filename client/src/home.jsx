@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
 
+import Status from './components/status.jsx';
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -14,9 +16,14 @@ class Home extends Component {
 
     render() {
         return (
+          <div>
             <div>
                <button onClick={this.logout}>Logout</button>
             </div>
+            <h1> Welcome, random customer!</h1>
+            <p> My laundry status </p>
+            <Status />
+          </div>
         );
     }
 }
