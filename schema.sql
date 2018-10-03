@@ -1,15 +1,16 @@
-DROP DATABASE IF EXISTS review;
+DROP DATABASE IF EXISTS deliveries;
 
-CREATE DATABASE review;
+CREATE DATABASE deliveries;
 
-USE review;
+USE deliveries;
 
-CREATE TABLE groceries (
+CREATE TABLE deliver (
   id int NOT NULL AUTO_INCREMENT,
-  quantity integer NOT NULL,
-  description varchar(50) NOT NULL,
+  dates integer NOT NULL,
+  times integer(50) NOT NULL,
   PRIMARY KEY (ID)
 );
+
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < schema.sql
