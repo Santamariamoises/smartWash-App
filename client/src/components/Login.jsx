@@ -40,14 +40,14 @@ class Login extends Component {
       <div className="form-group">
        <label htmlFor="exampleInputEmail1">Email address</label>
        <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-       <small id="emailHelp" className="form-text text-muted">Well never share your email with anyone else.</small>
+       <small id="emailHelp" className="form-text text-muted"></small>
       </div>
        <div className="form-group">
       <label htmlFor="exampleInputPassword1">Password</label>
       <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
       </div>
-      <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
-      <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Signup</button>
+      <button type="submit" onClick={this.login} className="btn btn-primary">Sign in</button>
+      <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create account</button>
  </form>
 
  </div>

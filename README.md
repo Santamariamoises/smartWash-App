@@ -1,17 +1,7 @@
-## HACK REACTOR REVIEW - GROCERY LIST
-
-# The App
-![picture](client/dist/HackReactorReview_GroceryList.png) 
+## SMART WASH - APP
 
 # Description
-Grocery List displays a list of groceries and their quantity from an array upon initial load.
-It allows users to add more groceries to the database and immediately displays new ones added.
-
-# Basic Requirements
-1. Initially upon page load displays a list of all of the groceries listed in the data.js file
-2. Allows you to enter a grocery name and grocery quantity and click on an add button to add the item to the list
-3. After adding a new grocery item, dynamically updates and displays the new grocery item on the page without reload the whole page
-4. If the exact same grocery item was added (not case sensitive) then it updates the quantity of the item
+Smart wash app allows to the users to send their clothes to an laundry mat, and a delivery guy is gonna pick the clothes and take it back home.
 
 # Advanced Requirements 
 Do these if you have completed the basics and have ample time to spare based on the assigned due date
@@ -30,10 +20,6 @@ Do these if you have completed the basics and have ample time to spare based on 
 7. In a new terminal window, type 'npm run start'. This will start express web server for your site
 8. Open a browser window and enter http://localhost:3000 as the URL and you should see the main page of the site
 9. Before you begin coding you should always open and view all of the files and folders provided in this project repo and try and understand each one.
-9. Open the code in your favorite editor and enjoy! :-)
-
-
-# Important Information
 
 ## Express.js
 For this project you will not be using live server but instead a local server has been setup for you
@@ -49,13 +35,7 @@ Webpack has the ability to perform many functions but for this project it will s
 using the react and es2015 presets. It will take all of your transpiled files and combine them into a single filed called bundle.js
 Your bundle.js is linked via your index.html. You will perform the steps needed to run Webpack by performing step #5 and step #6 above.
 
-If you have errors in your react files and you don't see errors in your browser console window because there was
-a problem transpiling the jsx files then you will see those errors in the terminal window where webpack is running.
 
-## Summary 
-Once you execute the steps in the instructions to start your Express.js server and Webpack you will not need to 
-do anything further to get your app up an running. Simply write good code and refresh your site in the browser window.
-The only other thing is viewing errors. Please do NOT modify the file located at server/index.js
 
 
 
