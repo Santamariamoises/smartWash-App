@@ -17,3 +17,5 @@ var orders = function(call back) {
     }
   });
 };
+
+module.exports.orders = orders;
