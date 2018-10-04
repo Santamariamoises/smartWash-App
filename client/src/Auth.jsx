@@ -34,7 +34,12 @@ class Auth extends Component {
   render() {
     return (
      <div>
+<<<<<<< 9f2f45c4f35c17fa176e8c73b98fd35999c5b22c
      {this.state.user ?  ( <Home user={this.state.user}/>) : (<Login />)}
+=======
+     <h1> SmartWash </h1>
+     {this.state.user ?  ( <Home />) : (<Login />)}
+>>>>>>> bit of styling
      </div>
 )}
 }

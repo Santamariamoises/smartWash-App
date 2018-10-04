@@ -11,6 +11,7 @@ const Navigation = () => {
           <NavLink to="/cita">Place Order</NavLink>
           </ul>
     </nav>
+
    </div>
   );
 }
