@@ -10,7 +10,8 @@ CREATE TABLE orders(
   lastname varchar(50) NOT NULL,
   address varchar(100) NOT NULL,
   email varchar(50) NOT NULL,
-  phone varchar(10)
+  phone varchar(10) NOT NULL,
+  pick up varchar(10) NOT NULL,
   PRIMARY KEY (ID)
 );
 
