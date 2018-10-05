@@ -1,17 +1,20 @@
-DROP DATABASE IF EXISTS deliveries;
+DROP DATABASE IF EXISTS smartWash;
 
-CREATE DATABASE deliveries;
+CREATE DATABASE smartWash;
 
-USE deliveries;
+USE smartWash;
 
-CREATE TABLE deliver (
+CREATE TABLE orders(
   id int NOT NULL AUTO_INCREMENT,
-  dates integer NOT NULL,
-  times integer(50) NOT NULL,
+  name varchar(50) NOT NULL,
+  lastname varchar(50) NOT NULL,
+  address varchar(100) NOT NULL,
+  email varchar(50) NOT NULL,
+  phone varchar(10) NOT NULL,
+  pick up varchar(10) NOT NULL,
   PRIMARY KEY (ID)
 );
 
-
 /*  Execute this file from the command line by typing:
- *    mysql -u root < schema.sql
+ *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
