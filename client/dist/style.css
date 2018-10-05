@@ -18,14 +18,16 @@ body {
   text-align: center;
 }
 
-#info{
-  <h2><center>Hi, Everyone!</center>
-    <h4 style="color:LightGray;">I was born in Guadalajara, Mexico. My parents immigrated to the U.S.A when I was 4 years; and because of that
-    I was raised in the San Francisco Bay Area, California.
-    After more than two decades in the USA, in late 2017, I had no other option than to return back to Mexico
-    to keep persuing a happy and sucessful future. Thanks to Hola Code I am on my way!</h4>
+
+.pic {
+  width: 130%;
+  margin: auto;
+  text-align: center;
+left: 100%;
+margin-left: -89px;
 
 }
+
 
 .groceries {
   margin: 10px;
