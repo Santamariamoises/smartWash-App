@@ -9,7 +9,7 @@ class Laundry extends React.Component {
 
   render () {
     return (
-      <h1> text </h1>
+      <h1> My SmartWash </h1>
     )
   }
 }

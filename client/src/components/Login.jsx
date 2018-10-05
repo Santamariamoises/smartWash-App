@@ -35,22 +35,29 @@ class Login extends Component {
   }
   render() {
     return (
-       <div className="col-md-6">
+       <center><div id= "content" className="col-md-6">
+       <div>
        <form>
+
       <div className="form-group">
-       <label htmlFor="exampleInputEmail1">Email address</label>
-       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+       <label htmlFor="exampleInputEmail1"></label>
+       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" />
        <small id="emailHelp" className="form-text text-muted"></small>
       </div>
        <div className="form-group">
-      <label htmlFor="exampleInputPassword1">Password</label>
+      <label htmlFor="exampleInputPassword1"></label>
       <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
       </div>
       <button type="submit" onClick={this.login} className="btn btn-primary">Sign in</button>
-      <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create account</button>
- </form>
 
- </div>
+ </form>
+</div>
+
+<h1>
+<img id="hello" src=""/>Picked up dirty. Delivered fresh & folded.</h1>
+
+<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Sign Up</button>
+ </div></center>
     );
   }
 }

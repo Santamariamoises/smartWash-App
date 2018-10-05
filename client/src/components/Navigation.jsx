@@ -11,6 +11,7 @@ const Navigation = () => {
           <NavLink to="/cita">Ordena ahora</NavLink>
           </ul>
     </nav>
+
    </div>
   );
 }

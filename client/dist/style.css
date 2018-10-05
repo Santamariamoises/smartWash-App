@@ -1,4 +1,12 @@
 body {
+  background-image: url("https://www.geappliances.com/assets/images/products/laundry-app-icon.jpg");
+  background-repeat: no-repeat;
+  background-image: center;
+  background-size: cover;
+  }
+  h2{
+    color: Black;
+
   font-family: Arial, Helvetica, sans-serif;
   background-color: honeydew;
   color: seagreen;
@@ -10,8 +18,18 @@ body {
   text-align: center;
 }
 
+#info{
+  <h2><center>Hi, Everyone!</center>
+    <h4 style="color:LightGray;">I was born in Guadalajara, Mexico. My parents immigrated to the U.S.A when I was 4 years; and because of that
+    I was raised in the San Francisco Bay Area, California.
+    After more than two decades in the USA, in late 2017, I had no other option than to return back to Mexico
+    to keep persuing a happy and sucessful future. Thanks to Hola Code I am on my way!</h4>
 
+}
 
 .groceries {
   margin: 10px;
+}
+
+
 }
