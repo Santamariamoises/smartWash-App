@@ -1,10 +1,10 @@
-var mysql = require('mysql');
+/*var mysql = require('mysql');
 
 var connection = mysql.createConection({
   host   : 'localhost',
   user   :  'root',
   password  : 'password',
-  database  : 'smartWash-App'
+  database  : 'smartWash'
 });
 
 var orders = function(call back) {
@@ -18,4 +18,5 @@ var orders = function(call back) {
   });
 };
 
-module.exports.orders = orders;
+*/
+

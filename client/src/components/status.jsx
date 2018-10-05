@@ -5,10 +5,10 @@ import React from 'react';
 
 
 //if orden en curso, render (conditional rendering)
-const Status = () => {
+const Status = (props) => {
   return (
     <div>
-      <h2>Tu ropa está **lavándose**</h2>
+      <h2>Tu ropa está **{props.status}**</h2>
    </div>
   );
 }
