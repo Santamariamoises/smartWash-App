@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import fire from './components/fire.jsx';
 import Status from './components/status.jsx'
 
-import Status from './components/status.jsx';
 
 class Home extends Component {
     constructor(props) {
