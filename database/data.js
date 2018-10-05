@@ -7,10 +7,10 @@ const connection = mysql.createConnection({
   database: "deliveries"
 });
 
-const insertHour = function(description, cb) {
+const insertTime = function(dates, cb) {
   connection.query(
-    "INSERT INTO deliver (dates) VALUES (?)",
-    [description],
+    "INSERT INTO deliver (times) VALUES (?)",
+    [times],
     (err, results, fields) => {
       if (err) {
         cb(err, null);
@@ -22,4 +22,4 @@ const insertHour = function(description, cb) {
   );
 };
 
-module.exports.insertHour = insertHour;
+module.exports.insertTime = insertTime;
