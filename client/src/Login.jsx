@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire from './fire.jsx';
+import fire from './components/fire.jsx';
 
 class Login extends Component {
   constructor(props) {
@@ -53,7 +53,10 @@ class Login extends Component {
  </form>
 </div>
 
-<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create account</button>
+<h1>
+<img id="hello" src=""/>Picked up dirty. Delivered fresh & folded.</h1>
+
+<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Sign Up</button>
  </div></center>
     );
   }
