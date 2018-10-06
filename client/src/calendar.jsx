@@ -36,6 +36,10 @@ addDay(dates){
      });
    }
 
+  Schedule(){
+    alert("¡Tu servicio ha sido programado!")
+  }
+
   render() {
     return (
       <div>
@@ -50,6 +54,7 @@ addDay(dates){
             : 'schedule your time'}
         </p>
         <Time />
+        <button onClick={this.Schedule}>¡Programar!</button>
       </div>
     );
   }

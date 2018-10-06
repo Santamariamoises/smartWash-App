@@ -24,8 +24,8 @@ class App extends React.Component {
         <div>
         <Navigation />
           <Switch>
-            <Route exact path="/" component={Auth} />
-            <Route path="/about" component={About} />
+            <Route exact path="/" component={About} />
+            <Route path="/registro" component={Auth} />
             <Route path="/cita" component={Calendar} />
           </Switch>
 
