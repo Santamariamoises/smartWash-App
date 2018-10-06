@@ -21,7 +21,7 @@ class Login extends Component {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).catch((error) => {
-        console.log(error);
+        alert("¡Contraseña o usuario incorrecto! Intenta nuevamente")
       });
   }
 
@@ -53,10 +53,7 @@ class Login extends Component {
  </form>
 </div>
 
-<h1>
-<img id="hello" src=""/>Picked up dirty. Delivered fresh & folded.</h1>
-
-<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Sign Up</button>
+<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create Account</button>
  </div></center>
     );
   }

@@ -7,8 +7,8 @@ const Navigation = () => {
 
     <nav className="headerStyle">
           <ul>
-          <button type="button" className="btn btn-dark"><NavLink to="/">Home</NavLink></button>
-          <NavLink to="/cita">Ordena ahora</NavLink>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to="/registro">Mi cuenta</NavLink>
           </ul>
     </nav>
 
@@ -18,3 +18,6 @@ const Navigation = () => {
 
 
 export default Navigation;
+
+
+// <NavLink to="/cita">Ordena!</NavLink>
