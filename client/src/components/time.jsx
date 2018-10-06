@@ -12,14 +12,6 @@ class Time extends React.Component {
 
   }
 
-  add(e){
-    e.preventDefault();
-    this.props.addDay(this.state.times);
-    this.setState({
-      times : ''
-    })
-  }
-
   render () {
     return (
 

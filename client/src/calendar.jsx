@@ -11,8 +11,7 @@ export default class Calendar extends React.Component {
     };
 
     this.handleDayClick = this.handleDayClick.bind(this);
-    this.addDay = this.addDay.bind(this);
-
+    
   }
 
   handleDayClick(day, { selected }) {
@@ -20,21 +19,6 @@ export default class Calendar extends React.Component {
       dates: selected ? undefined : day,
     });
   }
-
-addDay(dates){
-  $.ajax({
-       url:'/deliver',
-       type: "POST",
-       contentType: 'application/json',
-       data: JSON.stringify({
-         dates: dates
-       }),
-       success: (data)=> {
-       },
-       error: (xhr,status,error) => {
-       }
-     });
-   }
 
   Schedule(){
     alert("¡Tu servicio ha sido programado!")

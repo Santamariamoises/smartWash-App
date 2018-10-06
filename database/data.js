@@ -1,4 +1,4 @@
-/*var mysql = require('mysql');
+var mysql = require('mysql');
 
 var connection = mysql.createConection({
   host   : 'localhost',
@@ -7,15 +7,19 @@ var connection = mysql.createConection({
   database  : 'smartWash'
 });
 
-var orders = function(call back) {
-  connection.query('SELECT * FROM orders', function(err,results,fields){
-    if(err){
-      callback(err, null);
-    }else{
-      callback(null, results);
-
+const insertHour = function(times, cb) {
+  connection.query(
+    "INSERT INTO deliver (times) VALUES (?)",
+    [times],
+    (err, results, fields) => {
+      if (err) {
+        cb(err, null);
+      } else {
+        console.log(results);
+        cb(null, results);
+      }
     }
-  });
+  );
 };
 
-*/
+module.exports.insertHour = insertHour;

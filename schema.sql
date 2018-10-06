@@ -15,6 +15,14 @@ CREATE TABLE orders(
   PRIMARY KEY (ID)
 );
 
+
+CREATE TABLE deliver(
+  id int NOT NULL AUTO_INCREMENT,
+  dates varchar(50) NOT NULL,
+  times varchar(50) NOT NULL,
+)
+
+
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
