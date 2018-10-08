@@ -1,16 +1,16 @@
-const mysql = require("mysql");
+var mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "holacode",
-  database: "deliveries"
+  host   : 'localhost',
+  user   :  'root',
+  password  : 'holacode',
+  database  : 'smartWash'
 });
 
-const insertHour = function(description, cb) {
+const insertHour = function(times, cb) {
   connection.query(
-    "INSERT INTO deliver (dates) VALUES (?)",
-    [description],
+    "INSERT INTO deliver (times) VALUES (?)",
+    [times],
     (err, results, fields) => {
       if (err) {
         cb(err, null);

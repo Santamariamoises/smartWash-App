@@ -7,13 +7,17 @@ const Navigation = () => {
 
     <nav className="headerStyle">
           <ul>
-          <button><NavLink to="/">Home</NavLink></button>
-          <NavLink to="/cita">Place Order</NavLink>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to="/registro">Mi cuenta</NavLink>
           </ul>
     </nav>
+
    </div>
   );
 }
 
 
 export default Navigation;
+
+
+// <NavLink to="/cita">Ordena!</NavLink>

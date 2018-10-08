@@ -21,7 +21,7 @@ class Login extends Component {
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).catch((error) => {
-        console.log(error);
+        alert("¡Contraseña o usuario incorrecto! Intenta nuevamente")
       });
   }
 
@@ -30,27 +30,31 @@ class Login extends Component {
     fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((u)=>{
     }).then((u)=>{console.log(u)})
     .catch((error) => {
-        console.log(error);
+        alert("Usuario creado")
       })
   }
   render() {
     return (
-       <div className="col-md-6">
+       <center><div id= "content" className="col-md-6">
+       <div>
        <form>
+
       <div className="form-group">
-       <label htmlFor="exampleInputEmail1">Email address</label>
-       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+       <label htmlFor="exampleInputEmail1"></label>
+       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" />
        <small id="emailHelp" className="form-text text-muted"></small>
       </div>
        <div className="form-group">
-      <label htmlFor="exampleInputPassword1">Password</label>
+      <label htmlFor="exampleInputPassword1"></label>
       <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
       </div>
       <button type="submit" onClick={this.login} className="btn btn-primary">Sign in</button>
-      <button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create account</button>
- </form>
 
- </div>
+ </form>
+</div>
+
+<button onClick={this.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create Account</button>
+ </div></center>
     );
   }
 }
