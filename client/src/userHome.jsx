@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
-import Status from './components/status.jsx';
+import Login from "./components/Login.jsx";
 import Link from 'react-router-dom';
-
+import PlaceOrder from './PlaceOrder.jsx';
+import Auth from './Auth.jsx';
 
 class Home extends Component {
     constructor(props) {
@@ -38,9 +39,10 @@ class Home extends Component {
 
           <button onClick={this.Order}> ordena ahora</button>
           <h2> My laundry status </h2>
-            <Status status={this.state.status}/>
-
+          <PlaceOrder />
           </div>
+
+
         );
     }
 }
