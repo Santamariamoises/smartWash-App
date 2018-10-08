@@ -8,22 +8,13 @@ class Time extends React.Component {
       times:''
     }
 
-    this.add = this.add.bind(this);
 
-  }
-
-  add(e){
-    e.preventDefault();
-    this.props.addDay(this.state.times);
-    this.setState({
-      times : ''
-    })
   }
 
   render () {
     return (
 
-      <select onClick={this.add}>
+      <select >
       <option value="time">9:00 a.m.</option>
       <option value="time">9:30 a.m.</option>
       <option value="time">10:00 a.m.</option>

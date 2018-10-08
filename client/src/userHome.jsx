@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
 import Status from './components/status.jsx';
-import Link from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -24,22 +24,16 @@ class Home extends Component {
         fire.auth().signOut();
     }
 
-    Order(){
-      alert("ahora vamos a ordenar")
-    }
-
     render() {
         return (
           <div>
-          <img src={"/clothes.png"} />
-          <p> logged to {this.props.user.email}
-          <button onClick={this.logout}>Logout</button>
-          </p>
-
-          <button onClick={this.Order}> ordena ahora</button>
-          <h2> My laundry status </h2>
+            <img src={"/clothes.png"} />
+            <p> logged to {this.props.user.email}
+            <button onClick={this.logout}>Logout</button>
+            </p>
+            <button><NavLink to="/cita">Ordena ahora</NavLink></button>
+            <h2> My laundry status </h2>
             <Status status={this.state.status}/>
-
           </div>
         );
     }
