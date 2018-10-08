@@ -4,13 +4,13 @@ var database = require('../database/data.js');
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/deliver', function(req, res){
-  let dates = req.body.dates;
+app.post('/smartWash', function(req, res){
+  let times = req.body.times;
 
-  if(!dates) {
+  if(!times) {
     res.sendStatus(400);
   } else {
-    database.insertTime(dates, (err, results) => {
+    database.insertHour (times, (err, results) => {
       if (err) {
         res.status(500);
       } else {
@@ -18,7 +18,6 @@ app.post('/deliver', function(req, res){
       }
     });
   }
-
 });
 
 app.listen(3000, function() {

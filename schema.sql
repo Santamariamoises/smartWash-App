@@ -20,7 +20,8 @@ CREATE TABLE deliver(
   id int NOT NULL AUTO_INCREMENT,
   dates varchar(50) NOT NULL,
   times varchar(50) NOT NULL,
-)
+  PRIMARY KEY (ID)
+);
 
 
 /*  Execute this file from the command line by typing:

@@ -1,9 +1,9 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConection({
+const connection = mysql.createConnection({
   host   : 'localhost',
   user   :  'root',
-  password  : 'password',
+  password  : 'holacode',
   database  : 'smartWash'
 });
 
