@@ -5,7 +5,8 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker} from "react-google-maps
 
 const Map = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBtBJDNeeT8yIMC4KuemtEuDYMNN6f3Pmc&libraries=geometry",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBpSYWNhdVDLySY7DFq7ajgS2OJd0d9vKw&libraries=geometry",
+    // AIzaSyBpSYWNhdVDLySY7DFq7ajgS2OJd0d9vKw
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
