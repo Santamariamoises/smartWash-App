@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
+import Status from './components/status.jsx'
 import { NavLink } from 'react-router-dom';
 
 

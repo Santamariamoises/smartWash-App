@@ -8,17 +8,29 @@ import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
 import PlaceOrder from './PlaceOrder.jsx';
-import Home from './userHome.jsx';
+import userHome from './userHome.jsx';
+import Payment from './components/payment.jsx'
 // import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      lat: null,
+      lon: null
     }
   }
 
+  componentDidMount() {
+      navigator.geolocation.getCurrentPosition(location => {
+        this.setState({
+          lat: location.coords.latitude,
+          lon: location.coords.longitude
+        })
+
+      });
+   }
 
   render () {
     return (
@@ -30,6 +42,7 @@ class App extends React.Component {
             <Route path="/registro" component={Auth} />
             <Route path="/cita" component={Calendar} />
             <Route path="/PlaceOrder" component={PlaceOrder} />
+            <Route path="/pay" component={Payment} />
 
           </Switch>
 

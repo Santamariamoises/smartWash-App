@@ -26,8 +26,8 @@ class OrderFields extends React.Component {
              ref="PhoneNumber"
              defaultValue={ this.props.fieldValues.PhoneNumber } />
 
-      <select class="custom-select">
-        <option selected>Select BagSize</option>
+      <select className="custom-select">
+        <option select = 'true'>Select BagSize</option>
         <option value="1">Small $25</option>
         <option value="2">Medium $34</option>
         <option value="3">Large $43</option>

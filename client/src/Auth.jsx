@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import fire from "./components/fire.jsx";
 import Login from "./components/Login.jsx";
+import Home from "./userHome.jsx";
 
 class Auth extends Component {
   constructor() {
