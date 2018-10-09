@@ -14,10 +14,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      lat: null,
+      lon: null
     }
   }
 
+  componentDidMount() {
+      navigator.geolocation.getCurrentPosition(location => {
+        this.setState({
+          lat: location.coords.latitude,
+          lon: location.coords.longitude
+        })
+        
+      });
+   }
 
   render () {
     return (
