@@ -6,9 +6,9 @@ import Home from "./userHome.jsx";
 class Auth extends Component {
   constructor() {
     super();
-    this.state = ({
+    this.state = {
       user: null,
-    });
+    };
     this.authListener = this.authListener.bind(this);
   }
 
