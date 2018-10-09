@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import fire from './fire.jsx';
 import SignUp from './signUp.jsx';
-import ExistingLogIn from './ExistingLogIn.jsx';
 
-class Login extends Component {
+class ExistingLogIn extends Component {
   constructor(props) {
     super(props);
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.signup = this.signup.bind(this);
-    this.hasAccount = this.hasAccount.bind(this);
-    this.noAccount = this.noAccount.bind(this);
     this.state = {
       account: undefined,
       email: '',
@@ -38,34 +35,27 @@ class Login extends Component {
         alert("Usuario creado")
       })
   }
-
-  hasAccount(){
-    console.log("has account");
-    this.setState({
-      account: true
-    })
-  }
-
-  noAccount(){
-    console.log("no account");
-    this.setState({
-      account: false
-    })
-  }
-
   render() {
     return (
-      <div>
-       <button onClick={this.hasAccount}> ya tengo cuenta</button>
-       <button onClick={this.noAccount}> crear una cuenta nueva</button>
-        <div>
-        { this.state.account ?
-          < ExistingLogIn /> :
-          <SignUp />
-        }
-        </div>
+       <center><div id= "content" className="col-md-6">
+       <div>
+       <form>
+
+      <div className="form-group">
+       <label htmlFor="exampleInputEmail1"></label>
+       <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" />
+       <small id="emailHelp" className="form-text text-muted"></small>
       </div>
+       <div className="form-group">
+      <label htmlFor="exampleInputPassword1"></label>
+      <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+      </div>
+      <button type="submit" onClick={this.login} className="btn btn-primary">Sign in</button>
+
+ </form>
+</div>
+ </div></center>
     );
   }
 }
-export default Login;
+export default ExistingLogIn;
