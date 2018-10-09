@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import bootstrap from 'bootstrap';
 
 class OrderFields extends React.Component {
   constructor(props) {
@@ -16,14 +17,21 @@ class OrderFields extends React.Component {
              defaultValue={ this.props.fieldValues.name } />
 
       <label>Address</label>
-      <input type="Address"
+        <input type="text"
              ref="Address"
              defaultValue={ this.props.fieldValues.Address } />
 
       <label>PhoneNumber</label>
-      <input type="PhoneNumber"
+        <input type="text"
              ref="PhoneNumber"
              defaultValue={ this.props.fieldValues.PhoneNumber } />
+
+      <select class="custom-select">
+        <option selected>Select BagSize</option>
+        <option value="1">Small $25</option>
+        <option value="2">Medium $34</option>
+        <option value="3">Large $43</option>
+      </select>
 
       <button onClick={ this.saveAndContinue }>Save and Continue</button>
       </div>
