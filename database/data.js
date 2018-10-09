@@ -7,19 +7,21 @@ const connection = mysql.createConnection({
   database  : 'smartWash'
 });
 
-const insertHour = function(times, cb) {
+const insertuser = function(userName, mail, callback) {
+  console.log("quiubo desde la db");
   connection.query(
-    "INSERT INTO deliver (times) VALUES (?)",
-    [times],
+    'INSERT INTO users (userName, mail) VALUES (?, ?, ?, ?, ?, ?)',
+    [name, descrip, price, category, email, vendor],
     (err, results, fields) => {
       if (err) {
-        cb(err, null);
+        callback(err, null);
       } else {
         console.log(results);
-        cb(null, results);
+        callback(null, results);
       }
     }
   );
 };
+
 
 module.exports.insertHour = insertHour;

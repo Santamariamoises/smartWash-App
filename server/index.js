@@ -1,16 +1,18 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var items = require('../database/index.js');
 var app = express();
-var database = require('../database/data.js');
 
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/smartWash', function(req, res){
+app.post('/users', function(req, res){
   let times = req.body.times;
 
-  if(!times) {
+  if(!userName) {
     res.sendStatus(400);
   } else {
-    database.insertHour (times, (err, results) => {
+    database.insertUser (mail, userName, (err, results) => {
       if (err) {
         res.status(500);
       } else {

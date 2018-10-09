@@ -32,6 +32,7 @@ class Login extends Component {
     .catch((error) => {
         alert("Usuario creado")
       })
+      ''
   }
   render() {
     return (
