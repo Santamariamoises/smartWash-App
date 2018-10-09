@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
-import Status from './components/status.jsx';
+import Status from './components/status.jsx'
 import { NavLink } from 'react-router-dom';
 
 
@@ -35,6 +35,8 @@ class Home extends Component {
             <h2> My laundry status </h2>
             <Status status={this.state.status}/>
           </div>
+
+
         );
     }
 }

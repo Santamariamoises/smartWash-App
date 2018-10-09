@@ -10,7 +10,7 @@ import Home from './userHome.jsx';
 class Auth extends Component {
   constructor() {
     super();
-    this.state = ({
+    this.state = {
       user: null,
       account: undefined
     });
