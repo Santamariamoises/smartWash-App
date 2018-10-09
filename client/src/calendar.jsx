@@ -3,6 +3,8 @@ import DayPicker from 'react-day-picker';
 import $ from 'jquery';
 import Time from './components/time.jsx'
 import Map from './components/map.jsx'
+import { NavLink } from 'react-router-dom';
+
 export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -40,6 +42,8 @@ export default class Calendar extends React.Component {
         <Time />
         <button onClick={this.Schedule}>¡Programar!</button>
         <Map />
+        <button><NavLink to="/pay">Pagar</NavLink></button>
+
       </div>
     );
   }

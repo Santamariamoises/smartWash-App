@@ -8,6 +8,7 @@ import About from "./components/about.jsx";
 import Calendar from "./calendar.jsx";
 import PlaceOrder from './PlaceOrder.jsx';
 import userHome from './userHome.jsx';
+import Payment from './components/payment.jsx'
 // import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
@@ -26,7 +27,7 @@ class App extends React.Component {
           lat: location.coords.latitude,
           lon: location.coords.longitude
         })
-        
+
       });
    }
 
@@ -40,6 +41,7 @@ class App extends React.Component {
             <Route path="/registro" component={Auth} />
             <Route path="/cita" component={Calendar} />
             <Route path="/PlaceOrder" component={PlaceOrder} />
+            <Route path="/pay" component={Payment} />
 
           </Switch>
 

@@ -16,7 +16,13 @@ const Map = compose(
             <GoogleMap
                 defaultZoom={12}
                 defaultCenter={{ lat:19.4222496, lng:-99.1740582}}
-                options={{streetViewControl: false, mapTypeControl: false}}>
+                options={{streetViewControl: false, mapTypeControl: false}}
+            >
+
+                  <Marker
+                title={'Aqui estás'}
+                position={{ lat: 19.4222496, lng: -99.1740635 }}
+                  />
             </GoogleMap>
 )
 
