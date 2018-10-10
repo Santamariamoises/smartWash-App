@@ -13,7 +13,7 @@ class Auth extends Component {
     this.state = {
       user: null,
       account: undefined
-    });
+    }
     this.authListener = this.authListener.bind(this);
   }
 
