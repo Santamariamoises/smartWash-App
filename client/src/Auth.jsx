@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import fire from "./components/fire.jsx";
 import Login from "./components/Login.jsx";
-import Home from "./userHome.jsx";
+import SignUp from "./components/signUp.jsx"
+import App from './index.jsx';
+import Home from './userHome.jsx';
+// import Login from './Login';
+
 
 class Auth extends Component {
   constructor() {
     super();
     this.state = {
       user: null,
-    };
+      account: undefined
+    }
     this.authListener = this.authListener.bind(this);
   }
 

@@ -16,10 +16,10 @@ CREATE TABLE orders(
 );
 
 
-CREATE TABLE deliver(
+CREATE TABLE users(
   id int NOT NULL AUTO_INCREMENT,
-  dates varchar(50) NOT NULL,
-  times varchar(50) NOT NULL,
+  mail varchar(50) NOT NULL,
+  userName varchar(50) NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -27,3 +27,5 @@ CREATE TABLE deliver(
 /*  Execute this file from the command line by typing:
  *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
+
+ INSERT INTO users (mail, userName) VALUES ("jazzcelaya@gmail.com", "Jazz");

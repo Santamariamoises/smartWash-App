@@ -7,13 +7,13 @@ var stripe = require("stripe")("pk_test_wd9rThkNdTfjOnS9RXQIFPv6");
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/smartWash', function(req, res){
+app.post('/users', function(req, res){
   let times = req.body.times;
 
-  if(!times) {
+  if(!userName) {
     res.sendStatus(400);
   } else {
-    database.insertHour (times, (err, results) => {
+    database.insertUser (mail, userName, (err, results) => {
       if (err) {
         res.status(500);
       } else {
