@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OrderFields from './components/OrderFields.jsx';
+import { NavLink } from 'react-router-dom';
 /*import SurveyFields from 'SurveyFields';
 import Confirmation from 'Confirmation';
 import Success from 'Success';*/
@@ -36,11 +37,15 @@ previousStep() {
 }
 
 render() {
-  return <OrderFields fieldValues={fieldValues}
+  return (
+    <div>
+          <OrderFields fieldValues={fieldValues}
           nextStep={this.nextStep}
           saveValues={this.saveValues} />
-  }
-
-};
+          <button><NavLink to="/cita">Ordena ahora</NavLink></button>
+    </div>
+        );
+      }
+    };
 
 export default PlaceOrder;
