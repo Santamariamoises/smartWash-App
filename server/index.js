@@ -8,12 +8,14 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/users', function(req, res){
-  let times = req.body.times;
+  let email = req.body.email;
+  let userName = req.body.userName;
+  console.log("hola desdel server");
 
-  if(!userName) {
+  if(!email) {
     res.sendStatus(400);
   } else {
-    database.insertUser (mail, userName, (err, results) => {
+    database.insertUser (email, userName, (err, results) => {
       if (err) {
         res.status(500);
       } else {
@@ -22,6 +24,7 @@ app.post('/users', function(req, res){
     });
   }
 });
+
 
 app.post('/api/stripe', function(req, res, next) {
   const stripeToken = req.body.stripeToken;
