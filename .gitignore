@@ -1,3 +1,6 @@
+#lock json
+package-lock.json
+
 # bundles
 client/dist/bundle.js
 
