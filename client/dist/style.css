@@ -1,10 +1,26 @@
-body {
-  background-color: #cdf4ee; 
+ body {
+  background-color: //#//cdf4ee;
   /* background-color: #7bd0d8; */
   background-repeat: no-repeat;
-  background-image: center;
+  background-image: url(washer.jpg);
   background-size: cover;
+
   }
+/*
+  body {
+    background:
+     url(washer.jpg) bottom center no-repeat,
+
+  } */
+/*
+  html {
+    background: url(washer.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  } */
+
   h2{
   color: Black;
   font-family: Arial, Helvetica, sans-serif;
@@ -26,5 +42,12 @@ body {
   margin: auto;
   text-align: center;
   left: 100%;
-  margin-left: -89px;
+  margin-left: -59px;
+}
+h1 {
+    font-size: 1.5em;
+    color: white;
+}
+p.oblique {
+    font-style: oblique;
 }
