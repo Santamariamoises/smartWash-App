@@ -3,11 +3,10 @@ import StripeCheckout from 'react-stripe-checkout';
 
 class Payment extends React.Component{
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       messages: []
     }
-
     this.onToken = this.onToken.bind(this);
   }
 

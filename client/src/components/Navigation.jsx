@@ -15,7 +15,6 @@ render(){
           <ul>
           <NavLink to='/'>Home</NavLink>
           <NavLink to='/registro'>Mi cuenta</NavLink>
-          <NavLink to='/PlaceOrder'>PlaceOrder</NavLink>
           </ul>
     </nav>
     </div>

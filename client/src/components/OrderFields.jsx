@@ -11,28 +11,28 @@ class OrderFields extends React.Component {
   render() {
     return (
       <div>
-      <label>Name</label>
+      <label>Name:</label>
       <input type="text"
              ref="name"
              defaultValue={ this.props.fieldValues.name } />
-
-      <label>Address</label>
+<br></br>
+      <label>Address:</label>
         <input type="text"
              ref="Address"
              defaultValue={ this.props.fieldValues.Address } />
-
-      <label>PhoneNumber</label>
+<br></br>
+      <label>PhoneNumber:</label>
         <input type="text"
              ref="PhoneNumber"
              defaultValue={ this.props.fieldValues.PhoneNumber } />
-
+<br></br>
       <select className="custom-select">
         <option select = 'true'>Select BagSize</option>
         <option value="1">Small $25</option>
         <option value="2">Medium $34</option>
         <option value="3">Large $43</option>
       </select>
-
+<br></br>
       <button onClick={ this.saveAndContinue }>Save and Continue</button>
       </div>
     )
