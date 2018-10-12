@@ -1,5 +1,6 @@
- body {
-  background-color: //#//cdf4ee;
+
+body {
+  background-color: #cdf4ee;
   /* background-color: #7bd0d8; */
   background-repeat: no-repeat;
   background-image: url(washer.jpg);
@@ -50,4 +51,9 @@ h1 {
 }
 p.oblique {
     font-style: oblique;
+}
+
+#icon{
+  width: 20px;
+  length: 20px;
 }

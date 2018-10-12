@@ -17,8 +17,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       list: [],
-      lat: null,
-      lon: null
+      lat: '',
+      lon: ''
     }
   }
 
