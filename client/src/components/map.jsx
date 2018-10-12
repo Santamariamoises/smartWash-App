@@ -33,6 +33,7 @@ const Map = compose(
                 animation= {google.maps.Animation.DROP}
                 icon={'/drop.png'}
                 draggable={true}
+                size={100, 100 }
                   />
             </GoogleMap>
 )
