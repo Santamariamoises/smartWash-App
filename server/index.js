@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var database = require('../database/data.js');
+var db = require('../database/data.js');
 var stripe = require("stripe")("pk_test_wd9rThkNdTfjOnS9RXQIFPv6");
 
 app.use(bodyParser.json());
@@ -15,7 +15,7 @@ app.post('/users', function(req, res){
   if(!email) {
     res.sendStatus(400);
   } else {
-    database.insertUser (email, userName, (err, results) => {
+    db.insertUser (email, userName, (err, results) => {
       if (err) {
         res.status(500);
       } else {
