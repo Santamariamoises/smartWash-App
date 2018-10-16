@@ -25,6 +25,26 @@ app.post('/users', function(req, res){
   }
 });
 
+app.post('/order', function(req, res){
+  let name = req.body.name;
+  let phone = req.body.phone;
+  let address = req.body.address;
+  let size = req.body.size;
+  let specialInd = req.body.specialInd;
+  let service = req.body.service;
+
+  if(!name) {
+    res.sendStatus(400);
+  } else {
+    database.insertOrder (name, phone, address, size, specialInd, service, (err, results) => {
+      if (err) {
+        res.status(500);
+      } else {
+        res.status(200).json(results);
+      }
+    });
+  }
+});
 
 app.post('/api/stripe', function(req, res, next) {
   const stripeToken = req.body.stripeToken;

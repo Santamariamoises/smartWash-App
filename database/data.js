@@ -24,4 +24,17 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
+const insertOrder= function (name, phone, address, size, specialInd, service, callback) {
+  connection.query('INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
+  [name, phone, address, size, specialInd, service], function(err, result, fields) {
+    if (err) {
+      callback(err, null);
+    } else {
+      console.log(err)
+      callback(err, result);
+    }
+  })
+}
+
+module.exports.insertOrder = insertOrder;
 module.exports.insertUser = insertUser;
