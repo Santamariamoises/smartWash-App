@@ -7,6 +7,7 @@ const connection = mysql.createConnection({
   database  : 'smartWash'
 });
 
+// post new user to database
 const insertUser = function(email, userName, callback) {
   console.log("quiubo desde la db");
   connection.query(
@@ -24,4 +25,18 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
+// get single user information
+const selectUser = function(email) {
+  return new Promise((resolve, reject) => {
+  connection.query('SELECT * FROM posts WHERE email = ?', [email], (err, data) => {
+    if(err){
+      return reject(err);
+     }
+     return resolve(data);
+  })
+})
+};
+
+
 module.exports.insertUser = insertUser;
+module.exports.selectUser = selectUser;

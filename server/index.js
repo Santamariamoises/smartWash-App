@@ -50,6 +50,30 @@ app.post('/api/stripe', function(req, res, next) {
   });
 });
 
+// getUser = (req, res) => {
+//   let email = parseInt(req.url.split('/')[2])
+//   Promise.all([
+//     db.getSingleTopic(postId),
+//     db.getReply(postId)
+//   ])
+//   .then(data => {
+//     res.status(200).send(data)
+//   })
+//   .catch(err => { console.log(err) })
+// };
+
+//app.get('/user', function (req, res) {
+  // users.selectUser(email, function(err, data) {
+  //   if(err) {
+  //     console.log(err);
+  //     res.sendStatus(500);
+  //   } else {
+  //     console.log("get user request performed")
+  //     res.json(data);
+  //   }
+  // });
+// });
+
 app.listen(3000, function() {
   console.log('Server started and listening on port 3000');
 });
