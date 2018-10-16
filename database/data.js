@@ -25,6 +25,7 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
+<<<<<<< HEAD
 // get single user information
 const selectUser = function(email) {
   return new Promise((resolve, reject) => {
@@ -38,5 +39,20 @@ const selectUser = function(email) {
 };
 
 
+=======
+const insertOrder= function (name, phone, address, size, specialInd, service, callback) {
+  connection.query('INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
+  [name, phone, address, size, specialInd, service], function(err, result, fields) {
+    if (err) {
+      callback(err, null);
+    } else {
+      console.log(err)
+      callback(err, result);
+    }
+  })
+}
+
+module.exports.insertOrder = insertOrder;
+>>>>>>> master
 module.exports.insertUser = insertUser;
 module.exports.selectUser = selectUser;

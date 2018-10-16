@@ -6,11 +6,12 @@ USE smartWash;
 
 CREATE TABLE orders(
   id int NOT NULL AUTO_INCREMENT,
-  user varchar(100) NOT NULL,
+  name varchar(100) NOT NULL,
+  phone integer(100) NOT NULL,
   address varchar(100) NOT NULL,
-  email varchar(50) NOT NULL,
-  phone varchar(10) NOT NULL,
-  pickup varchar(10) NOT NULL,
+  size varchar(100) NOT NULL,
+  specialInd varchar(100) NOT NULL,
+  service varchar(100) NOT NULL,
   PRIMARY KEY (ID)
 );
 

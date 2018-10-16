@@ -31,7 +31,7 @@ class Home extends Component {
             <img src={"/clothes.png"} />
             <p> logged to {this.props.user.email}
             <Button onClick={this.logout}>Logout</Button>
-            <button><NavLink to='/PlaceOrder'>Place Order</NavLink></button>
+            <button><NavLink to='/Form'>Place Order</NavLink></button>
             </p>
             <h2> My laundry status </h2>
             <Status status={this.state.status}/>
