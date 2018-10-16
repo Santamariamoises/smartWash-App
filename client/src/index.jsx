@@ -7,9 +7,9 @@ import Navigation from "./components/Navigation.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
-import PlaceOrder from './PlaceOrder.jsx';
 import userHome from './userHome.jsx';
-import Payment from './components/payment.jsx'
+import Form from "./form.jsx";
+// import Payment from './components/payment.jsx'
 // import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
@@ -40,10 +40,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={About} />
             <Route path="/registro" component={Auth} />
-            <Route path="/cita" component={Calendar} />
-            <Route path="/PlaceOrder" component={PlaceOrder} />
-            <Route path="/pay" component={Payment} />
-
+            <Route path="/Form" component={Form} />
+            <Route path="/pickDay" component={Calendar} />
           </Switch>
 
         </div>
