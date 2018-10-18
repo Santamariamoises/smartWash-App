@@ -16,7 +16,7 @@ CREATE TABLE orders(
   PRIMARY KEY (ID)
 );
 
-INSERT INTO orders (name, phone, adress, size, specialInd, service, userId )
+INSERT INTO orders (name, phone, address, size, specialInd, service, userId )
 VALUES ("Fatima", 13151345, "calle 2 no 3", "mediano", "suavitel", "lavado y planchado", 2);
 
 CREATE TABLE schedule(
