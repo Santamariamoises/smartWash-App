@@ -1,11 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var path = require('path');
+var url = require('url');
+//var route = require("./Routes.js");
 var db = require('../database/data.js');
 var stripe = require("stripe")("pk_test_wd9rThkNdTfjOnS9RXQIFPv6");
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.post('/users', function(req, res){
   let email = req.body.email;
@@ -70,17 +75,18 @@ app.post('/api/stripe', function(req, res, next) {
   });
 });
 
-// getUser = (req, res) => {
-//   let email = parseInt(req.url.split('/')[2])
-//   Promise.all([
-//     db.getSingleTopic(postId),
-//     db.getReply(postId)
-//   ])
-//   .then(data => {
-//     res.status(200).send(data)
-//   })
-//   .catch(err => { console.log(err) })
-// };
+//app.get("user/:email",route.getResponse);
+
+app.get('/users', function (req, res) {
+  db.selectUsers(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      console.log("hi i love u att database")
+      res.json(data);
+    }
+  });
+});
 
 //app.get('/user', function (req, res) {
   // users.selectUser(email, function(err, data) {

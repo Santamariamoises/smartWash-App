@@ -28,4 +28,4 @@ CREATE TABLE users(
  *    mysql -u root -p < schema.sql
  *  to create the database and the tables.*/
 
- INSERT INTO users (email, userName) VALUES ("jazzcelaya@gmail.com", "Jazz");
+ INSERT INTO users (email, userName) VALUES ("anastasio@lelelele.lo", "Anastasio");
