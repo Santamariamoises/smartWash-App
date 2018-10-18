@@ -34,6 +34,17 @@ var selectUsers = function(callback) {
     }
   });
 };
+
+var selectOrders = function(callback) {
+  connection.query('SELECT * FROM orders', function(err, results, fields) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 // get single user information
 // const selectUser = function(email) {
 //   return new Promise((resolve, reject) => {
@@ -49,6 +60,6 @@ var selectUsers = function(callback) {
 // };
 
 
-
+module.exports.selectOrders = selectOrders;
 module.exports.insertUser = insertUser;
 module.exports.selectUsers = selectUsers;

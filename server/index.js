@@ -88,6 +88,17 @@ app.get('/users', function (req, res) {
   });
 });
 
+app.get('/orders', function (req, res) {
+  db.selectOrders(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      console.log("hi i sent the orders att database")
+      res.json(data);
+    }
+  });
+});
+
 //app.get('/user', function (req, res) {
   // users.selectUser(email, function(err, data) {
   //   if(err) {

@@ -42,8 +42,34 @@ class Home extends Component {
    })
 }
 
+getUsersOrders() {
+$.ajax({
+ url: '/orders/',
+ method:'GET',
+ success: (data) => {
+  console.log(data, "awiwi las orders llegaron");
+    const usersOrders = undefined;
+  for ( var i = 0; i < data.length; i++){
+    if (data[i].userId === this.state.userId){
+      console.log("user's orders found", data[i]);
+      const usersOrders = data[i];
+    }
+  }
+    if (usersOrders === undefined ){
+      this.setState({
+        state: "no tienes órdenes en marcha"
+      })
+    }
+ },
+ error:(xhr,err) => {
+   console.log('la cagaste desde el fronts orders',err)
+ }
+})
+}
+
     componentDidMount(){
       this.getUserInfo();
+      this.getUsersOrders();
       console.log("component mounted")
     }
 

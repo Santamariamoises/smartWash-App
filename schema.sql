@@ -7,14 +7,17 @@ USE smartWash;
 CREATE TABLE orders(
   id int NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
-  phone integer(100) NOT NULL,
+  phone int(100) NOT NULL,
   address varchar(100) NOT NULL,
   size varchar(100) NOT NULL,
   specialInd varchar(100) NOT NULL,
   service varchar(100) NOT NULL,
+  userId int(2) NOT NULL,
   PRIMARY KEY (ID)
 );
 
+INSERT INTO orders (name, phone, adress, size, specialInd, service, userId )
+VALUES ("Fatima", 13151345, "calle 2 no 3", "mediano", "suavitel", "lavado y planchado", 2);
 
 CREATE TABLE users(
   id int NOT NULL AUTO_INCREMENT,
