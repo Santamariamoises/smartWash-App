@@ -30,6 +30,22 @@ app.post('/users', function(req, res){
   }
 });
 
+app.post('/times', function(req, res){
+  let times = req.body.times;
+
+  if(!times) {
+    res.sendStatus(400);
+  } else {
+    database.insertTime (times, (err, results) => {
+      if (err) {
+        res.status(500);
+      } else {
+        res.status(200).json(results);
+      }
+    });
+  }
+});
+
 app.post('/order', function(req, res){
   let name = req.body.name;
   let phone = req.body.phone;

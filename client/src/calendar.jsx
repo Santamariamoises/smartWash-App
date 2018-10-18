@@ -43,6 +43,7 @@ export default class Calendar extends React.Component {
         <Time />
         <button onClick={this.Schedule}>¡Programar!</button>
         <Map />
+        <br></br>
         <Payment />
       </div>
     );

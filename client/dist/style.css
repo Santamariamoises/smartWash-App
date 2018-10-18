@@ -57,3 +57,11 @@ p.oblique {
   width: 20px;
   length: 20px;
 }
+
+.stripe-button{
+  margin-top: 20px;
+}
+
+.form{
+  background-color: blue;
+}

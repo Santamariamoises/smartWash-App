@@ -25,6 +25,19 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
+
+
+const insertOrder= function (name, phone, address, size, specialInd, service, callback) {
+  connection.query('INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
+  [name, phone, address, size, specialInd, service], function(err, result, fields) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 var selectUsers = function(callback) {
   connection.query('SELECT * FROM users', function(err, results, fields) {
     if(err) {
