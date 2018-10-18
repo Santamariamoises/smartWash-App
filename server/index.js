@@ -1,11 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-var database = require('../database/data.js');
+var path = require('path');
+var url = require('url');
+//var route = require("./Routes.js");
+var db = require('../database/data.js');
 var stripe = require("stripe")("pk_test_wd9rThkNdTfjOnS9RXQIFPv6");
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.post('/users', function(req, res){
   let email = req.body.email;
@@ -15,7 +20,7 @@ app.post('/users', function(req, res){
   if(!email) {
     res.sendStatus(400);
   } else {
-    database.insertUser (email, userName, (err, results) => {
+    db.insertUser (email, userName, (err, results) => {
       if (err) {
         res.status(500);
       } else {
@@ -69,6 +74,42 @@ app.post('/api/stripe', function(req, res, next) {
     }
   });
 });
+
+//app.get("user/:email",route.getResponse);
+
+app.get('/users', function (req, res) {
+  db.selectUsers(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      console.log("hi i love u att database")
+      res.json(data);
+    }
+  });
+});
+
+app.get('/orders', function (req, res) {
+  db.selectOrders(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      console.log("hi i sent the orders att database")
+      res.json(data);
+    }
+  });
+});
+
+//app.get('/user', function (req, res) {
+  // users.selectUser(email, function(err, data) {
+  //   if(err) {
+  //     console.log(err);
+  //     res.sendStatus(500);
+  //   } else {
+  //     console.log("get user request performed")
+  //     res.json(data);
+  //   }
+  // });
+// });
 
 app.listen(3000, function() {
   console.log('Server started and listening on port 3000');
