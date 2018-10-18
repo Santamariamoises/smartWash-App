@@ -16,6 +16,12 @@ CREATE TABLE orders(
 );
 
 
+CREATE TABLE schedule(
+  id int NOT NULL AUTO_INCREMENT,
+  times varchar(50) NOT NULL,
+  PRIMARY KEY (ID)
+);
+
 CREATE TABLE users(
   id int NOT NULL AUTO_INCREMENT,
   email varchar(50) NOT NULL,

@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class Form extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class Form extends React.Component {
       address: '',
       size: '',
       specialInd: '',
-      service: ''
+      service: '',
+      times:''
     }
     this.handleName = this.handleName.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
@@ -95,22 +97,23 @@ class Form extends React.Component {
 
       <form>
         <span>Name:</span>
-        <input type= 'text' value={this.state.name} onChange={this.handleName}></input>
+        <input  type= 'text' className="form" className="catInput radius form-control form-control-md" aria-describedby="name" placeholder="Enter Name:" value={this.state.name} onChange={this.handleName}></input>
       </form>
 
       <form>
         <span>Cellphone:</span>
-        <input type= 'text' value={this.state.phone} onChange={this.handlePhone}></input>
+        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Number Cellphone:" value={this.state.phone} onChange={this.handlePhone}></input>
       </form>
 
       <form>
         <span>Address:</span>
-        <input type= 'text' value={this.state.address} onChange={this.handleAddress}></input>
+        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Address:" value={this.state.address} onChange={this.handleAddress}></input>
       </form>
 
       <form>
         <span>Size:</span>
         <select
+        className="catInput radius form-control form-control-md"
         value={this.state.size}
         onChange={this.handleSize}
         type="select"
@@ -123,12 +126,13 @@ class Form extends React.Component {
 
       <form>
         <span>Special indications:</span>
-        <input type= 'text' value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
+        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
       </form>
 
       <form>
         <span>Service:</span>
         <select
+        className="catInput radius form-control form-control-md"
         value={this.state.service}
         onChange={this.handleService}
         type="select"
@@ -137,10 +141,10 @@ class Form extends React.Component {
           <option>Dry-clean</option>
           <option>Ironed and folded</option>
         </select>
-        <button onClick={this.add}>Crear Order</button>
+        <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
       </form>
 
-      <button><NavLink to ='/pickDay'>Ordenar ahora</NavLink></button>
+      <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
     </div>);
   }
 }

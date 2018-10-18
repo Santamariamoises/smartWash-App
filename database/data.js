@@ -24,6 +24,21 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
+const insertTime = function(times, callback) {
+  connection.query(
+    'INSERT INTO schedule (times) VALUE (?)',
+    [times],
+    (err, results, fields) => {
+      if (err) {
+        callback(err, null);
+        console.log(err);
+      } else {
+        callback(null, results);
+      }
+    }
+  );
+};
+
 const insertOrder= function (name, phone, address, size, specialInd, service, callback) {
   connection.query('INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
   [name, phone, address, size, specialInd, service], function(err, result, fields) {
@@ -38,3 +53,4 @@ const insertOrder= function (name, phone, address, size, specialInd, service, ca
 
 module.exports.insertOrder = insertOrder;
 module.exports.insertUser = insertUser;
+module.exports.insertTime = insertTime;
