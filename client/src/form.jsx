@@ -13,7 +13,9 @@ class Form extends React.Component {
       size: '',
       specialInd: '',
       service: '',
-      times:''
+      time: '',
+      userId: undefined,
+      userName: undefined
     }
     this.handleName = this.handleName.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
@@ -23,8 +25,10 @@ class Form extends React.Component {
     this.handleService = this.handleService.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.add=this.add.bind(this);
+    this.getUserInfo2 = this.getUserInfo2.bind(this);
 
   }
+
 
   handleName(e) {
     e.preventDefault();
@@ -55,6 +59,31 @@ class Form extends React.Component {
     e.preventDefault();
     this.setState({service: e.target.value})
   }
+
+getUserInfo2() {
+ $.ajax({
+   url: '/users/',
+   method:'GET',
+   success: (data) => {
+    console.log(data, "awiwi");
+    for ( var i = 0; i < data.length; i++){
+      if (data[i].email === this.props.user.email){
+        console.log("user found", data[i]);
+        const usersInfo = data[i];
+        this.setState({
+          userId: usersInfo.id,
+          userName: usersInfo.userName,
+        })
+      }
+      console.log("user assigned");
+    }
+   },
+   error:(xhr,err) => {
+     console.log('la cagaste desde el fronts',err)
+   }
+ })
+}
+
 
   addOrder(name, phone, address, size, specialInd, service){
    $.ajax({
@@ -90,6 +119,10 @@ class Form extends React.Component {
     })
   }
 
+  componentDidMount2(){
+    getUserInfo();
+//    console.log("form mounted")
+  }
 
   render () {
     return (
