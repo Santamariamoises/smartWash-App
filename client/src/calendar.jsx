@@ -41,7 +41,7 @@ export default class Calendar extends React.Component {
             : 'schedule your time'}
         </p>
         <Time />
-        <button onClick={this.Schedule}>¡Programar!</button>
+      <button onClick={this.props.Schedule}>¡Programar!</button>
         <Map />
         <br></br>
         <Payment />

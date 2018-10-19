@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
-import Status from './components/status.jsx'
+import status from './components/status.jsx'
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import $ from 'jquery';
@@ -86,7 +86,7 @@ $.ajax({
             <button><NavLink to='/Form'>Place Order</NavLink></button>
             </p>
             <h2> My laundry status </h2>
-            <Status status={this.state.status}/>
+          <status status={this.state.status}/>
           </div>
 
 

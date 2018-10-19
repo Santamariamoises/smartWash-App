@@ -9,7 +9,7 @@ import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
 import userHome from './userHome.jsx';
 import Form from "./form.jsx";
-
+import Payment from "./components/payment.jsx"
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +38,7 @@ class App extends React.Component {
             <Route path="/registro" component={Auth} />
             <Route path="/Form" component={Form} />
             <Route path="/pickDay" component={Calendar} />
+          <Route path="/checkout" component={Payment} />
           </Switch>
         </div>
       </BrowserRouter>
