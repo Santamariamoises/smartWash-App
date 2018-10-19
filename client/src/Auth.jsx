@@ -4,9 +4,6 @@ import Login from "./components/Login.jsx";
 import SignUp from "./components/signUp.jsx"
 import App from './index.jsx';
 import Home from './userHome.jsx';
-// import Login from './Login';
-
-
 
 class Auth extends Component {
   constructor() {
@@ -39,6 +36,7 @@ class Auth extends Component {
      <div>
         <h1> SmartWash </h1>
      {this.state.user ?  ( <Home user={this.state.user}/>) : (<Login />)}
+
      </div>
 )}
 }

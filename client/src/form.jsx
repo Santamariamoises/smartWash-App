@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import ChooseService from './components/ChooseService.jsx';
 
 class Form extends React.Component {
   constructor(props) {
@@ -128,22 +129,8 @@ class Form extends React.Component {
         <span>Special indications:</span>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
       </form>
-
-      <form>
-        <span>Service:</span>
-        <select
-        className="catInput radius form-control form-control-md"
-        value={this.state.service}
-        onChange={this.handleService}
-        type="select"
-        >
-          <option>Laundry</option>
-          <option>Dry-clean</option>
-          <option>Ironed and folded</option>
-        </select>
-        <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
-      </form>
-
+      <ChooseService />
+      <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
       <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
     </div>);
   }

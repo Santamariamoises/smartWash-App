@@ -9,8 +9,6 @@ import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
 import userHome from './userHome.jsx';
 import Form from "./form.jsx";
-// import Payment from './components/payment.jsx'
-// import Calendar from "./components/calendar.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,14 +19,12 @@ class App extends React.Component {
       lon: ''
     }
   }
-
   componentDidMount() {
       navigator.geolocation.getCurrentPosition(location => {
         this.setState({
           lat: location.coords.latitude,
           lon: location.coords.longitude
         })
-
       });
    }
 
@@ -43,11 +39,12 @@ class App extends React.Component {
             <Route path="/Form" component={Form} />
             <Route path="/pickDay" component={Calendar} />
           </Switch>
-
         </div>
       </BrowserRouter>
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <App />
+, document.getElementById('app'));

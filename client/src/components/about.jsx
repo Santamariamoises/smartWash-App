@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -8,8 +9,11 @@ class About extends React.Component {
   }
 
   render () {
+
     return (
+
       <div>
+
       <h1>Picked up dirty. Delivered fresh & folded.</h1>
       <img className="pic" src="steps.jpg"/>
     <h1>SmartWash door-to-door laundry service is one of the best ways to save
