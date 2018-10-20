@@ -21,11 +21,11 @@ class App extends React.Component {
     this.state = {
       lat: '',
       lon: '',
-      status : undefined,
       userId: undefined,
       userName: undefined,
       user: null,
       account: undefined,
+      userOrders: undefined,
     }
     this.getUserInfo = this.getUserInfo.bind(this);
     this.getUsersOrders = this.getUsersOrders.bind(this);
@@ -38,17 +38,17 @@ class App extends React.Component {
        method:'GET',
        success: (data) => {
         console.log(data, "awiwi", data);
-        // for ( var i = 0; i < data.length; i++){
-        //   if (data[i].email === this.props.user.email){
-        //     console.log("user found", data[i]);
-        //     const usersInfo = data[i];
-        //     this.setState({
-        //       userId: usersInfo.id,
-        //       userName: usersInfo.userName,
-        //     })
-        //   }
-        //   console.log("user assigned");
-        // }
+        for ( var i = 0; i < data.length; i++){
+          if (data[i].email === this.state.user.email){
+            console.log("user found", data[i]);
+            const usersInfo = data[i];
+            this.setState({
+              userId: usersInfo.id,
+              userName: usersInfo.userName,
+            })
+          }
+          console.log("user assigned");
+        }
        },
        error:(xhr,err) => {
          console.log('la cagaste desde el fronts',err)
@@ -69,11 +69,9 @@ class App extends React.Component {
         const usersOrders = data[i];
       }
     }
-      if (usersOrders === undefined ){
-        this.setState({
-          state: "no tienes órdenes en marcha"
-        })
-      }
+    this.setState({
+      userOrders: usersOrders
+    })
    },
    error:(xhr,err) => {
      console.log('la cagaste desde el fronts orders',err)
@@ -117,9 +115,9 @@ class App extends React.Component {
             <Route path="/Form" component={Form} />
             <Route path="/pickDay" component={Calendar} />
             <Route path='/micuenta' render={(props) =>
-              <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders} getUserInfo={this.getUserInfo}/>} />
+            <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
+            getUserInfo={this.getUserInfo}/>} />
           </Switch>
-
         </div>
       </BrowserRouter>
     )

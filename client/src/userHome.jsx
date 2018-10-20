@@ -69,7 +69,7 @@ class Home extends Component {
 //
     componentDidMount(){
        this.props.getUserInfo();
-      // this.props.getUsersOrders();
+       this.props.getUsersOrders();
       console.log("component mounted")
     }
 
@@ -81,12 +81,14 @@ class Home extends Component {
         return (
           <div>
             <img src={"/clothes.png"} />
-            <p> logged to
+            <p> Welcome, {this.props.state.userName}!
             <Button onClick={this.logout}>Logout</Button>
-            <button><NavLink to='/Form'>Place Order</NavLink></button>
             </p>
+            <div>
+            <button><NavLink to='/Form'>Place Order</NavLink></button>
+            </div>
             <h2> My laundry status </h2>
-            <Status status={this.props.state.status}/>
+            <Status status={this.props.state}/>
           </div>
 
 
