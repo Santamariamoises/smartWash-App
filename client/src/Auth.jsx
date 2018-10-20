@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import fire from "./components/fire.jsx";
+import {Redirect} from 'react-router-dom';
+//import fire from "./components/fire.jsx";
 import Login from "./components/Login.jsx";
 import SignUp from "./components/signUp.jsx"
 import App from './index.jsx';
@@ -9,38 +10,40 @@ import Home from './userHome.jsx';
 
 
 class Auth extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null,
-      account: undefined
-    }
-    this.authListener = this.authListener.bind(this);
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   user: null,
+    //   account: undefined
+    // }
+    // this.authListener = this.authListener.bind(this);
   }
 
   componentDidMount() {
-    this.authListener();
+    this.props.authListener();
   }
 
-  authListener() {
-    fire.auth().onAuthStateChanged((user) => {
-      console.log(user);
-      if (user) {
-        this.setState({ user });
-        localStorage.setItem('user', user.uid);
-      } else {
-        this.setState({ user: null });
-        localStorage.removeItem('user');
-      }
-    });
-  }
+  // authListener() {
+  //   fire.auth().onAuthStateChanged((user) => {
+  //     console.log(user);
+  //     if (user) {
+  //       this.setState({ user });
+  //       localStorage.setItem('user', user.uid);
+  //     } else {
+  //       this.setState({ user: null });
+  //       localStorage.removeItem('user');
+  //     }
+  //   });
+  // }
   render() {
     return (
      <div>
         <h1> SmartWash </h1>
-     {this.state.user ?  ( <Home user={this.state.user}/>) : (<Login />)}
+     {this.props.state.user ?  ( <Redirect to="/micuenta"/> ) : (<Login />)}
      </div>
 )}
 }
 
  export default Auth;
+
+ //<Home user={this.props.state.user}/>)
