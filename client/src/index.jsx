@@ -26,14 +26,6 @@ class App extends React.Component {
       user: null,
       account: undefined,
       userOrders: undefined,
-      // currentOrder:{
-      //   lat:
-      //   long:
-      //   time:
-      //   price:
-      //   day:
-      //
-      // }
     }
     this.getUserInfo = this.getUserInfo.bind(this);
     this.getUsersOrders = this.getUsersOrders.bind(this);
@@ -55,7 +47,9 @@ class App extends React.Component {
               userName: usersInfo.userName,
             })
           }
+
           console.log("user assigned", this.state.userName);
+
         }
        },
        error:(xhr,err) => {
