@@ -8,7 +8,7 @@ import React from 'react';
 const Status = (props) => {
  return (
    <div>
-     <h2>Tu ropa está **{props.status}**</h2>
+     <h2>Tu ropa está *esperando este componente**</h2>
   </div>
  );
 }
