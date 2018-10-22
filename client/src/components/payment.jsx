@@ -46,7 +46,7 @@ onToken(token){
       <script
         src="https:checkout.stripe.com/checkout.js" className="stripe-button"
         data-key="pk_test_wd9rThkNdTfjOnS9RXQIFPv6"
-        data-amount="1"
+        data-amount="700000 "
         data-name="Smart Wash"
         data-description="Widget"
         data-image= {'/clothes.png'}

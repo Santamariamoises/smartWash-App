@@ -74,21 +74,6 @@ var selectOrders = function(callback) {
   });
 };
 
-// get single user information
-// const selectUser = function(email) {
-//   return new Promise((resolve, reject) => {
-//   connection.query('SELECT * FROM posts WHERE email = ?', [email], (err, data) => {
-//     if(err){
-//       console.log(err,"ya la cagaste");
-//       return reject(err);
-//      }
-//      return resolve(data);
-//      console.log("awebo desde la db ya jaló la get")
-//   })
-// })
-// };
-
-
 module.exports.selectOrders = selectOrders;
 module.exports.insertUser = insertUser;
 module.exports.selectUsers = selectUsers;
