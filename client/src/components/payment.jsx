@@ -36,24 +36,25 @@ onToken(token){
 
   render(){
     return(
-  <div>
-        <StripeCheckout
-          token={this.onToken}
-          stripeKey="pk_test_wd9rThkNdTfjOnS9RXQIFPv6"
-        />
-        <form action="stripe" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" className="stripe-button"
-    data-key="pk_test_wd9rThkNdTfjOnS9RXQIFPv6"
-    data-amount="1"
-    data-name="Smart Wash"
-    data-description="Widget"
-    data-image= {'/clothes.png'}
-    data-locale="auto"
-    >
-  </script>
-</form>
-      </div>
+<div>
+  <StripeCheckout
+  className = 'pago'
+  token={this.onToken}
+  stripeKey="pk_test_wd9rThkNdTfjOnS9RXQIFPv6"
+  />
+    <form action="/" method="GET">
+      <script
+        src="https:checkout.stripe.com/checkout.js" className="stripe-button"
+        data-key="pk_test_wd9rThkNdTfjOnS9RXQIFPv6"
+        data-amount="700000 "
+        data-name="Smart Wash"
+        data-description="Widget"
+        data-image= {'/clothes.png'}
+        data-locale="auto"
+        >
+      </script>
+    </form>
+  </div>
     );
   }
 }

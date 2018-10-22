@@ -1,10 +1,8 @@
+
 import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import Status from './Status.jsx';
-import Map from './components/map.jsx';
-import Payment from './components/payment.jsx';
 
 class Form extends React.Component {
   constructor(props) {
@@ -13,17 +11,25 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
+      size: '',
       specialInd: '',
-      times:''
+      service: '',
+      time: '',
+      userId: undefined,
+      userName: undefined
     }
     this.handleName = this.handleName.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
     this.handleAddress = this.handleAddress.bind(this);
+    this.handleSize = this.handleSize.bind(this);
     this.handleSpecialInd = this.handleSpecialInd.bind(this);
+    this.handleService = this.handleService.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.add=this.add.bind(this);
+    this.getUserInfo2 = this.getUserInfo2.bind(this);
 
   }
+
 
   handleName(e) {
     e.preventDefault();
@@ -40,10 +46,45 @@ class Form extends React.Component {
     this.setState({address: e.target.value})
   }
 
+  handleSize(e) {
+    e.preventDefault();
+    this.setState({size: e.target.value})
+  }
+
   handleSpecialInd(e) {
     e.preventDefault();
     this.setState({specialInd: e.target.value})
   }
+
+  handleService(e) {
+    e.preventDefault();
+    this.setState({service: e.target.value})
+  }
+
+getUserInfo2() {
+ $.ajax({
+   url: '/users/',
+   method:'GET',
+   success: (data) => {
+    console.log(data, "awiwi");
+    for ( var i = 0; i < data.length; i++){
+      if (data[i].email === this.props.user.email){
+        console.log("user found", data[i]);
+        const usersInfo = data[i];
+        this.setState({
+          userId: usersInfo.id,
+          userName: usersInfo.userName,
+        })
+      }
+      console.log("user assigned");
+    }
+   },
+   error:(xhr,err) => {
+     console.log('la cagaste desde el fronts',err)
+   }
+ })
+}
+
 
   addOrder(name, phone, address, size, specialInd, service){
    $.ajax({
@@ -54,12 +95,9 @@ class Form extends React.Component {
        name: name,
        phone: phone,
        address: address,
-       shipping_speed: shipping_speed,
-       weight_kg: weight_kg,
+       size: size,
        specialInd: specialInd,
-       departure_date: departure_date,
-       arrival_date: arrival_date,
-       cost: cost
+       service: service
      }),
      success:(data)=> {
      },
@@ -76,39 +114,71 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
-      specialInd: ''
-
+      size: '',
+      specialInd: '',
+      service: ''
     })
   }
 
+  componentDidMount2(){
+    getUserInfo();
+//    console.log("form mounted")
+  }
 
   render () {
     return (
     <div>
 
       <form>
-        <h5><p class="font-weight-bold d-block p-2 bg-primary text-black">Name:</p></h5>
+        <span>Name:</span>
         <input  type= 'text' className="form" className="catInput radius form-control form-control-md" aria-describedby="name" placeholder="Enter Name:" value={this.state.name} onChange={this.handleName}></input>
       </form>
 
       <form>
-        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Cellphone:</p></h5>
+        <span>Cellphone:</span>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Number Cellphone:" value={this.state.phone} onChange={this.handlePhone}></input>
       </form>
 
       <form>
-        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Address:</p></h5>
+        <span>Address:</span>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Address:" value={this.state.address} onChange={this.handleAddress}></input>
       </form>
 
       <form>
-        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Special indications:</p></h5>
+        <span>Size:</span>
+        <select
+        className="catInput radius form-control form-control-md"
+        value={this.state.size}
+        onChange={this.handleSize}
+        type="select"
+        >
+          <option>1-3 kg</option>
+          <option>3-5 Kg</option>
+          <option>5-7 Kg</option>
+        </select>
+      </form>
+
+      <form>
+        <span>Special indications:</span>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
       </form>
-      <Status />
-      <Map />
-        <Payment />
-      <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
+
+      <form>
+        <span>Service:</span>
+        <select
+        className="catInput radius form-control form-control-md"
+        value={this.state.service}
+        onChange={this.handleService}
+        type="select"
+        >
+          <option>Laundry</option>
+          <option>Dry-clean</option>
+          <option>Ironed and folded</option>
+        </select>
+        <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
+      </form>
+
+      <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
     </div>);
   }
 }

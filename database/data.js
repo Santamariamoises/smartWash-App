@@ -25,17 +25,33 @@ const insertUser = function(email, userName, callback) {
   );
 };
 
-
-
-const insertOrder= function (name, phone, address, size, specialInd, service, callback) {
-  connection.query('INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
-  [name, phone, address, size, specialInd, service], function(err, result, fields) {
-    if (err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
+const insertTime = function(times, callback) {
+  connection.query(
+    'INSERT INTO schedule (times) VALUES (?)',
+    [times],
+    (err, results, fields) => {
+      if (err) {
+        callback(err, null);
+        console.log(err);
+      } else {
+        callback(null, results);
+      }
     }
-  });
+  );
+};
+
+var insertOrder= function (name, phone, address, size, specialInd, service, callback) {
+  connection.query(
+    'INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
+  [name, phone, address, size, specialInd, service],   (err, results, fields) => {
+      if (err) {
+        callback(err, null);
+        console.log(err);
+      } else {
+        callback(null, results);
+      }
+    }
+  );
 };
 
 var selectUsers = function(callback) {
@@ -58,21 +74,8 @@ var selectOrders = function(callback) {
   });
 };
 
-// get single user information
-// const selectUser = function(email) {
-//   return new Promise((resolve, reject) => {
-//   connection.query('SELECT * FROM posts WHERE email = ?', [email], (err, data) => {
-//     if(err){
-//       console.log(err,"ya la cagaste");
-//       return reject(err);
-//      }
-//      return resolve(data);
-//      console.log("awebo desde la db ya jaló la get")
-//   })
-// })
-// };
-
-
 module.exports.selectOrders = selectOrders;
 module.exports.insertUser = insertUser;
 module.exports.selectUsers = selectUsers;
+module.exports.insertTime = insertTime;
+module.exports.insertOrder = insertOrder;
