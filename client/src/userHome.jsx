@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
-import status from './components/status.jsx'
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import $ from 'jquery';
-// import Button from '@material-ui/core/Button';
+import Form from './form.jsx';
+import Status from './Status.jsx';
 
 class Home extends Component {
     constructor(props) {

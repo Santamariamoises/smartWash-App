@@ -7,9 +7,11 @@ import Navigation from "./components/Navigation.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
-import userHome from './userHome.jsx';
+import Home from './userHome.jsx';
 import Form from "./form.jsx";
-import Payment from "./components/payment.jsx"
+import Payment from "./components/payment.jsx";
+import Status from "./Status.jsx";
+
 class App extends React.Component {
   constructor(props) {
     super(props);

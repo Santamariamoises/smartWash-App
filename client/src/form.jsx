@@ -2,7 +2,9 @@ import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import ChooseService from './components/ChooseService.jsx';
+import Status from './Status.jsx';
+import Map from './components/map.jsx';
+import Payment from './components/payment.jsx';
 
 class Form extends React.Component {
   constructor(props) {
@@ -11,17 +13,13 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
-      size: '',
       specialInd: '',
-      service: '',
       times:''
     }
     this.handleName = this.handleName.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
     this.handleAddress = this.handleAddress.bind(this);
-    this.handleSize = this.handleSize.bind(this);
     this.handleSpecialInd = this.handleSpecialInd.bind(this);
-    this.handleService = this.handleService.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.add=this.add.bind(this);
 
@@ -42,19 +40,9 @@ class Form extends React.Component {
     this.setState({address: e.target.value})
   }
 
-  handleSize(e) {
-    e.preventDefault();
-    this.setState({size: e.target.value})
-  }
-
   handleSpecialInd(e) {
     e.preventDefault();
     this.setState({specialInd: e.target.value})
-  }
-
-  handleService(e) {
-    e.preventDefault();
-    this.setState({service: e.target.value})
   }
 
   addOrder(name, phone, address, size, specialInd, service){
@@ -66,9 +54,12 @@ class Form extends React.Component {
        name: name,
        phone: phone,
        address: address,
-       size: size,
+       shipping_speed: shipping_speed,
+       weight_kg: weight_kg,
        specialInd: specialInd,
-       service: service
+       departure_date: departure_date,
+       arrival_date: arrival_date,
+       cost: cost
      }),
      success:(data)=> {
      },
@@ -85,9 +76,8 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
-      size: '',
-      specialInd: '',
-      service: ''
+      specialInd: ''
+
     })
   }
 
@@ -97,41 +87,28 @@ class Form extends React.Component {
     <div>
 
       <form>
-        <span>Name:</span>
+        <h5><p class="font-weight-bold d-block p-2 bg-primary text-black">Name:</p></h5>
         <input  type= 'text' className="form" className="catInput radius form-control form-control-md" aria-describedby="name" placeholder="Enter Name:" value={this.state.name} onChange={this.handleName}></input>
       </form>
 
       <form>
-        <span>Cellphone:</span>
+        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Cellphone:</p></h5>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Number Cellphone:" value={this.state.phone} onChange={this.handlePhone}></input>
       </form>
 
       <form>
-        <span>Address:</span>
+        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Address:</p></h5>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Address:" value={this.state.address} onChange={this.handleAddress}></input>
       </form>
 
       <form>
-        <span>Size:</span>
-        <select
-        className="catInput radius form-control form-control-md"
-        value={this.state.size}
-        onChange={this.handleSize}
-        type="select"
-        >
-          <option>1-3 kg</option>
-          <option>3-5 Kg</option>
-          <option>5-7 Kg</option>
-        </select>
-      </form>
-
-      <form>
-        <span>Special indications:</span>
+        <h5><p className="font-weight-bold d-block p-2 bg-primary text-black">Special indications:</p></h5>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
       </form>
-      <ChooseService />
+      <Status />
+      <Map />
+        <Payment />
       <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
-      <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
     </div>);
   }
 }
