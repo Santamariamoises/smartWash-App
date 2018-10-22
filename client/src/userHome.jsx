@@ -88,7 +88,7 @@ class Home extends Component {
             <button><NavLink to='/Form'>Place Order</NavLink></button>
             </div>
             <h2> My laundry status </h2>
-            <Status status={this.props.state}/>
+            <Status/>
           </div>
 
 
