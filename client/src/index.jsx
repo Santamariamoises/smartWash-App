@@ -47,7 +47,9 @@ class App extends React.Component {
               userName: usersInfo.userName,
             })
           }
-          console.log("user assigned");
+
+          console.log("user assigned", this.state.userName);
+
         }
        },
        error:(xhr,err) => {
