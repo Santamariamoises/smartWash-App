@@ -65,8 +65,27 @@ p.oblique {
   background-color: blue;
 }
 
+.footers{
+  align-self: flex-end;
+  background-color: #209cee;
+  line-height: 3;
+  text-align: center;
+  margin-top:10vw;
+  height: 20vw;
+  width: 100%
+}
+
+.footers p, footer h6 {
+  color: black;
+}
+
 .pago{
   position: absolute;
   top: -9999px;
   left: -9999px;
+}
+
+.navbar-item{
+  margin-right: 27vw;
+  color: yellow;
 }

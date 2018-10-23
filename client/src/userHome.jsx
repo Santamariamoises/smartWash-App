@@ -89,9 +89,7 @@ class Home extends Component {
             <button><NavLink to='/Form'>¡Ordena Ahora!</NavLink></button>
             </div>
             <h2> My laundry status </h2>
-
             <Status/>
-
           </div>
 
 

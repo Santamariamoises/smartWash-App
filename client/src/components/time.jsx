@@ -50,6 +50,8 @@ class Time extends React.Component {
     value={this.props.state.times}
     onChange={this.props.handleTime}
     type="select"
+    className="catInput radius form-control form-control-md"
+    className="w-20 p-1"
     >
       <option>9:00 a.m.</option>
       <option>9:30 a.m.</option>

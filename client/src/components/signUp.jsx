@@ -8,9 +8,9 @@ class SignUp extends Component {
 
   render() {
     return (
-       <center><div id= "content" className="col-md-6">
-       <div>
-       <form>
+  <center><div id= "content" className="col-md-6">
+    <div>
+      <form>
 
       <div className="form-group">
        <label htmlFor="exampleInputEmail1"></label>
@@ -20,12 +20,13 @@ class SignUp extends Component {
        <div className="form-group">
       <label htmlFor="exampleInputPassword1"></label>
       <input value={this.props.state.password} onChange={this.props.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
-      <input value={this.props.state.userName} onChange={this.props.handleUserName} placeholder="Nombre de usuario" />
+      <br></br>
+      <input value={this.props.state.userName} onChange={this.props.handleUserName} placeholder="Nombre de usuario" className="form-control"/>
       </div>
- </form>
-</div>
-<button onClick={this.props.signup} style={{marginLeft: '25px'}} className="btn btn-success">Create Account</button>
- </div></center>
+      </form>
+    </div>
+<button onClick={this.props.signup} style={{marginLeft: '25px'}} className="btn btn-info">Create Account</button>
+  </div></center>
     );
   }
 }

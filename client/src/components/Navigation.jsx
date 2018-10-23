@@ -9,7 +9,7 @@ render () {
       <nav className="navbar is-info">
       <div className="container">
       <div className="navbar-brand">
-      <a className="navbar-item" href="/">Smart Wash</a>
+      <a className="navbar-item" href="/">Smart Wash </a>
       <span className="navbar-burger burger" data-target="navMenu">
       <span></span>
       <span></span>
@@ -18,13 +18,13 @@ render () {
       </div>
       <div id="navbar-end" className="navbar-menu">
       <div className="navbar-item">
-      <Link to="/" className="navbar-item">Home</Link>
-      <Link to="/registro" className="navbar-item">Order</Link>
+      <Link to="/registro" className="order" className="navbar-item" className="text-white">Order</Link>
       </div>
       </div>
       </div>
       </nav>
-      </div>)
+      </div>
+    )
   }
 }
 
