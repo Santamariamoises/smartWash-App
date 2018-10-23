@@ -3,7 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-
+import Service from './Service.jsx';
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +11,8 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
-      size: '',
+      updateResults: '',
       specialInd: '',
-      service: '',
       time: '',
       userId: undefined,
       userName: undefined
@@ -21,9 +20,7 @@ class Form extends React.Component {
     this.handleName = this.handleName.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
     this.handleAddress = this.handleAddress.bind(this);
-    this.handleSize = this.handleSize.bind(this);
     this.handleSpecialInd = this.handleSpecialInd.bind(this);
-    this.handleService = this.handleService.bind(this);
     this.addOrder = this.addOrder.bind(this);
     this.add=this.add.bind(this);
     this.getUserInfo2 = this.getUserInfo2.bind(this);
@@ -46,19 +43,14 @@ class Form extends React.Component {
     this.setState({address: e.target.value})
   }
 
-  handleSize(e) {
+  handleUpdateResults(e) {
     e.preventDefault();
-    this.setState({size: e.target.value})
+    this.setState({updateResults: e.target.value})
   }
 
   handleSpecialInd(e) {
     e.preventDefault();
     this.setState({specialInd: e.target.value})
-  }
-
-  handleService(e) {
-    e.preventDefault();
-    this.setState({service: e.target.value})
   }
 
 getUserInfo2() {
@@ -86,7 +78,7 @@ getUserInfo2() {
 }
 
 
-  addOrder(name, phone, address, size, specialInd, service){
+  addOrder(name, phone, address, cost, specialInd, updateResults){
    $.ajax({
      type: "POST",
      url: "/order",
@@ -95,9 +87,9 @@ getUserInfo2() {
        name: name,
        phone: phone,
        address: address,
-       size: size,
+       cost: cost,
        specialInd: specialInd,
-       service: service
+       updateResults: updateResults
      }),
      success:(data)=> {
      },
@@ -109,14 +101,15 @@ getUserInfo2() {
 
   add(event) {
     event.preventDefault();
-    this.addOrder(this.state.name, this.state.phone, this.state.address, this.state.size, this.state.specialInd, this.state.service);
+    this.addOrder(this.state.name, this.state.phone, this.state.address, this.state.updateResults, this.state.specialInd);
     this.setState({
       name: '',
       phone: '',
       address: '',
-      size: '',
+      cost: '',
       specialInd: '',
-      service: ''
+      updateResults: ''
+
     })
   }
 
@@ -145,41 +138,15 @@ getUserInfo2() {
       </form>
 
       <form>
-        <span>Size:</span>
-        <select
-        className="catInput radius form-control form-control-md"
-        value={this.state.size}
-        onChange={this.handleSize}
-        type="select"
-        >
-          <option>1-3 kg</option>
-          <option>3-5 Kg</option>
-          <option>5-7 Kg</option>
-        </select>
-      </form>
-
-      <form>
         <span>Special indications:</span>
         <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
       </form>
-
-      <form>
-        <span>Service:</span>
-        <select
-        className="catInput radius form-control form-control-md"
-        value={this.state.service}
-        onChange={this.handleService}
-        type="select"
-        >
-          <option>Laundry</option>
-          <option>Dry-clean</option>
-          <option>Ironed and folded</option>
-        </select>
-        <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
-      </form>
-
+      <Service
+         />
+      <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
       <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
-    </div>);
+  </div>
+);
   }
 }
 

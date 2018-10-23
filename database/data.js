@@ -4,6 +4,7 @@ const connection = mysql.createConnection({
   host   : 'localhost',
   user   :  'root',
   password  : 'holacode',
+  port: '3306',
   database  : 'smartWash'
 });
 
@@ -40,10 +41,10 @@ const insertTime = function(times, callback) {
   );
 };
 
-var insertOrder= function (name, phone, address, size, specialInd, service, callback) {
+var insertOrder= function (name, phone, address, up, specialInd, updateResults, callback) {
   connection.query(
-    'INSERT INTO orders (name, phone, address, size, specialInd, service) VALUES (?,?,?,?,?,?)',
-  [name, phone, address, size, specialInd, service],   (err, results, fields) => {
+    'INSERT INTO orders (name, phone, address, cost, specialInd, updateResults) VALUES (?,?,?,?,?,?)',
+  [name, phone, address, cost, specialInd, updateResults],   (err, results, fields) => {
       if (err) {
         callback(err, null);
         console.log(err);

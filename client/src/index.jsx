@@ -8,7 +8,6 @@ import Navigation from "./components/Navigation.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
-import userHome from './userHome.jsx';
 import Form from "./form.jsx";
 import Home from './userHome.jsx';
 import $ from 'jquery';
@@ -112,13 +111,10 @@ class App extends React.Component {
         <Navigation />
           <Switch>
             <Route exact path="/" component={About} />
-            <Route path="/registro" render={(props) =>
-              <Auth{...props} state={this.state} authListener={this.authListener}/>} />
-            <Route path="/Form" component={Form} />
-            <Route path="/pickDay" component={Calendar} />
-            <Route path='/micuenta' render={(props) =>
-            <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
-            getUserInfo={this.getUserInfo}/>} />
+           <Route path="/registro" component={Auth} />
+           <Route path="/pickDay" component={Calendar} />
+            
+
           </Switch>
         </div>
       </BrowserRouter>
@@ -127,3 +123,25 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <Route exact path="/" component={About} />
+// <Route path="/registro" render={(props) =>
+//   <Auth{...props} state={this.state} authListener={this.authListener}/>} />
+// <Route path="/Form" component={Form} />
+// <Route path="/pickDay" component={Calendar} />
+// <Route path='/micuenta' render={(props) =>
+// <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
+// getUserInfo={this.getUserInfo}/>} />

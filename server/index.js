@@ -47,13 +47,13 @@ app.post('/order', function(req, res){
   let name = req.body.name;
   let phone = req.body.phone;
   let address = req.body.address;
-  let size = req.body.size;
+
   let specialInd = req.body.specialInd;
-  let service = req.body.service;
+  let updateResults = req.body.updateResults;
   if(!name) {
     res.sendStatus(400);
   } else {
-    db.insertOrder (name, phone, address, size, specialInd, service, (err, results) => {
+    db.insertOrder (name, phone, address, specialInd, updateResults, (err, results) => {
       if (err) {
         res.status(500);
       } else {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import fire from './components/fire.jsx';
-import Status from './components/status.jsx'
+//import ProgressMobileStepper from './Status.jsx';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import $ from 'jquery';
@@ -89,7 +89,7 @@ class Home extends Component {
             </div>
             <h2> My laundry status </h2>
 
-            <Status/>
+            //<ProgressMobileStepper />
 
           </div>
 
