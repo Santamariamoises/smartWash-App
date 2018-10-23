@@ -10,25 +10,23 @@ class Form extends React.Component {
       name: '',
       phone: '',
       address: '',
-      size: '',
+      size: '1-3 kg',
       specialInd: '',
-      service: '',
+      service: 'Laundry',
       time: '',
       userId: undefined,
       userName: undefined
     }
-    this.handleName = this.handleName.bind(this);
-    this.handlePhone = this.handlePhone.bind(this);
-    this.handleAddress = this.handleAddress.bind(this);
-    this.handleSize = this.handleSize.bind(this);
-    this.handleSpecialInd = this.handleSpecialInd.bind(this);
-    this.handleService = this.handleService.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.addOrder = this.addOrder.bind(this);
-    this.add=this.add.bind(this);
+    this.add = this.add.bind(this);
     this.getUserInfo2 = this.getUserInfo2.bind(this);
 
   }
 
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
   handleName(e) {
     e.preventDefault();
@@ -130,25 +128,26 @@ getUserInfo2() {
 
       <form>
         <span>Name:</span>
-        <input  type= 'text' className="form" className="catInput radius form-control form-control-md" aria-describedby="name" placeholder="Enter Name:" value={this.state.name} onChange={this.handleName}></input>
+        <input  type= 'name' name="name" className="catInput radius form-control form-control-md" aria-describedby="name" placeholder="Enter Name:" value={this.state.name} onChange={this.handleChange}></input>
       </form>
 
       <form>
         <span>Cellphone:</span>
-        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Number Cellphone:" value={this.state.phone} onChange={this.handlePhone}></input>
+        <input type= 'text' name="phone"className="catInput radius form-control form-control-md" placeholder="Enter Number Cellphone:" value={this.state.phone} onChange={this.handleChange}></input>
       </form>
 
       <form>
         <span>Address:</span>
-        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Address:" value={this.state.address} onChange={this.handleAddress}></input>
+        <input type= 'text' name="address" className="catInput radius form-control form-control-md" placeholder="Enter Address:" value={this.state.address} onChange={this.handleChange}></input>
       </form>
 
       <form>
         <span>Size:</span>
         <select
         className="catInput radius form-control form-control-md"
+        name="size"
         value={this.state.size}
-        onChange={this.handleSize}
+        onChange={this.handleChange}
         type="select"
         >
           <option>1-3 kg</option>
@@ -159,15 +158,16 @@ getUserInfo2() {
 
       <form>
         <span>Special indications:</span>
-        <input type= 'text' className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleSpecialInd}></input>
+        <input type='text' name="specialInd" className="catInput radius form-control form-control-md" placeholder="Enter Special Indications:" value={this.state.specialInd} onChange={this.handleChange}></input>
       </form>
 
       <form>
         <span>Service:</span>
         <select
         className="catInput radius form-control form-control-md"
+        name="service"
         value={this.state.service}
-        onChange={this.handleService}
+        onChange={this.handleChange}
         type="select"
         >
           <option>Laundry</option>
