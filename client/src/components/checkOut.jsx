@@ -3,7 +3,7 @@ import Payment from './payment.jsx';
 
 //receipt
 
-const checkOut = () => {
+const CheckOut = (props) => {
  return (
    <div>
      <h2>forma recibo cosa*</h2>
@@ -13,4 +13,4 @@ const checkOut = () => {
  );
 }
 
-export default checkOut;
+export default CheckOut;

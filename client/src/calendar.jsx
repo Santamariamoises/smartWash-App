@@ -38,9 +38,9 @@ export default class Calendar extends React.Component {
             ? this.props.state.dates.toLocaleDateString()
             : 'schedule your time'}
         </p>
-        <Time />
+        <Time state={this.props.state} handleTime={this.props.handleTime}/>
         <Map />
-        <br></br>
+
         <button><NavLink to ='/checkout'>Pagar</NavLink></button>
       </div>
     );

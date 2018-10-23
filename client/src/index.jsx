@@ -5,7 +5,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Auth from './Auth.jsx';
 import fire from "./components/fire.jsx";
 import Navigation from "./components/Navigation.jsx";
-import checkOut from "./components/checkOut.jsx";
+import CheckOut from "./components/checkOut.jsx";
+import MisOrdenes from "./components/pastOrders.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
@@ -32,8 +33,10 @@ class App extends React.Component {
       size: '1-3 kg',
       specialInd: '',
       service: 'Laundry',
+      //we have 2 times wtf
       time: '',
       dates: null,
+      times:'',
     }
     this.getUserInfo = this.getUserInfo.bind(this);
     this.getUsersOrders = this.getUsersOrders.bind(this);
@@ -42,6 +45,8 @@ class App extends React.Component {
     this.addOrder = this.addOrder.bind(this);
     //this.add = this.add.bind(this);
     this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleTime = this.handleTime.bind(this);
+
   }
 
   handleDayClick(day, { selected }) {
@@ -49,6 +54,12 @@ class App extends React.Component {
       dates: selected ? undefined : day,
     });
   }
+
+  handleTime(e) {
+    e.preventDefault();
+    this.setState({times: e.target.value})
+  }
+
       getUserInfo() {
      $.ajax({
        url: '/users/',
@@ -180,7 +191,10 @@ class App extends React.Component {
           <Switch>
             <Route path="/" component={About} exact />
 
-            <Route path="/checkout" component={checkOut} />
+            <Route path="/checkout" render={(props) =>
+              <CheckOut {...props} state={this.state}/> } />
+
+            <Route path="/mis-ordenes" component={MisOrdenes} />
 
             <Route path="/registro" render={(props) =>
               <Auth{...props} state={this.state} authListener={this.authListener}/>} />
@@ -189,7 +203,8 @@ class App extends React.Component {
             <Form {...props} state={this.state}  handleChange={this.handleChange}/>} />
 
             <Route path="/pickDay" render={(props) =>
-            <Calendar {...props} state={this.state} handleDayClick={this.handleDayClick}/> }/>
+            <Calendar {...props} state={this.state} handleDayClick={this.handleDayClick}
+            handleTime={this.handleTime}  /> }/>
 
             <Route path='/micuenta' render={(props) =>
             <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
