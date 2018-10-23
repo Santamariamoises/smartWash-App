@@ -5,50 +5,50 @@ import $ from 'jquery';
 class Time extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      times:''
-    }
+    // this.state = {
+    //   times:''
+    // }
 
-this.handleTime = this.handleTime.bind(this);
-this.addTime = this.addTime.bind(this);
-this.added = this.added.bind(this);
+//this.handleTime = this.handleTime.bind(this);
+//this.addTime = this.addTime.bind(this);
+//this.added = this.added.bind(this);
 
   }
 
-  handleTime(e) {
-    e.preventDefault();
-    this.setState({times: e.target.value})
-  }
+  // handleTime(e) {
+  //   e.preventDefault();
+  //   this.setState({times: e.target.value})
+  // }
 
-  addTime(times){
-   $.ajax({
-     type: "POST",
-     url: "/times",
-     contentType: 'application/json',
-     data: JSON.stringify({
-       times: times
-     }),
-     success:(data)=> {
-     },
-     error: (xhr,status,error) => {
-       console.log(error);
-     }
-   });
-  }
+  // addTime(times){
+  //  $.ajax({
+  //    type: "POST",
+  //    url: "/times",
+  //    contentType: 'application/json',
+  //    data: JSON.stringify({
+  //      times: times
+  //    }),
+  //    success:(data)=> {
+  //    },
+  //    error: (xhr,status,error) => {
+  //      console.log(error);
+  //    }
+  //  });
+  // }
 
-  added(event) {
-    event.preventDefault();
-    this.addTime(this.state.times);
-    this.setState({
-      times: ''
-    })
-  }
+  // added(event) {
+  //   event.preventDefault();
+  //   this.addTime(this.state.times);
+  //   this.setState({
+  //     times: ''
+  //   })
+  // }
   render () {
     return (
   <div>
     <select
-    value={this.state.times}
-    onChange={this.handleTime}
+    value={this.props.state.times}
+    onChange={this.props.handleTime}
     type="select"
     className="catInput radius form-control form-control-md"
     className="w-20 p-1"
@@ -73,7 +73,6 @@ this.added = this.added.bind(this);
       <option>5:30 p.m.</option>
       <option>6:00 p.m.</option>
     </select>
-      <button className="btn btn-primary" onClick={this.added}>Set up Time</button>
   </div>
     )
   }

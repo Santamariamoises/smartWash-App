@@ -5,6 +5,8 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Auth from './Auth.jsx';
 import fire from "./components/fire.jsx";
 import Navigation from "./components/Navigation.jsx";
+import CheckOut from "./components/checkOut.jsx";
+import MisOrdenes from "./components/pastOrders.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
@@ -26,10 +28,36 @@ class App extends React.Component {
       user: null,
       account: undefined,
       userOrders: undefined,
+      phone: '',
+      address: '',
+      size: '1-3 kg',
+      specialInd: '',
+      service: 'Laundry',
+      //we have 2 times wtf
+      time: '',
+      dates: null,
+      times:'',
     }
     this.getUserInfo = this.getUserInfo.bind(this);
     this.getUsersOrders = this.getUsersOrders.bind(this);
     this.authListener = this.authListener.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.addOrder = this.addOrder.bind(this);
+    //this.add = this.add.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleTime = this.handleTime.bind(this);
+
+  }
+
+  handleDayClick(day, { selected }) {
+    this.setState({
+      dates: selected ? undefined : day,
+    });
+  }
+
+  handleTime(e) {
+    e.preventDefault();
+    this.setState({times: e.target.value})
   }
 
       getUserInfo() {
@@ -58,6 +86,33 @@ class App extends React.Component {
      })
   }
 
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+
+
+  addOrder(name, phone, address, size, specialInd, service){
+   $.ajax({
+     type: "POST",
+     url: "/order",
+     contentType: 'application/json',
+     data: JSON.stringify({
+       name: name,
+       phone: phone,
+       address: address,
+       size: size,
+       specialInd: specialInd,
+       service: service
+     }),
+     success:(data)=> {
+     },
+     error: (xhr,status,error) => {
+       console.log(error);
+     }
+   });
+  }
+
   getUsersOrders() {
   $.ajax({
    url: '/orders/',
@@ -71,9 +126,15 @@ class App extends React.Component {
         const usersOrders = data[i];
       }
     }
+    if (usersOrders !== undefined){
     this.setState({
       userOrders: usersOrders
     })
+  } else{
+    this.setState({
+      userOrders: "Aún no tienes una orden, ¡Ordena ahora!"
+    })
+  }
    },
    error:(xhr,err) => {
      console.log('la cagaste desde el fronts orders',err)
@@ -94,6 +155,23 @@ class App extends React.Component {
     });
   }
 
+//this function resets the form component back to default values but
+//i dont think well use it anymore
+  // addOrder(event) {
+  //     event.preventDefault();
+  //     this.addOrder(this.state.name, this.state.phone, this.state.address, this.state.size, this.state.specialInd, this.state.service);
+  //     this.setState({
+  //       phone: '',
+  //       address: '',
+  //       size: '',
+  //       specialInd: '',
+  //       service: ''
+  //     })
+  //   }
+
+
+
+
   componentDidMount() {
       navigator.geolocation.getCurrentPosition(location => {
         this.setState({
@@ -111,14 +189,27 @@ class App extends React.Component {
         <div>
         <Navigation />
           <Switch>
-            <Route exact path="/" component={About} />
+            <Route path="/" component={About} exact />
+
+            <Route path="/checkout" render={(props) =>
+              <CheckOut {...props} state={this.state}/> } />
+
+            <Route path="/mis-ordenes" component={MisOrdenes} />
+
             <Route path="/registro" render={(props) =>
               <Auth{...props} state={this.state} authListener={this.authListener}/>} />
-            <Route path="/Form" component={Form} />
-            <Route path="/pickDay" component={Calendar} />
+
+            <Route path='/Form' render={(props) =>
+            <Form {...props} state={this.state}  handleChange={this.handleChange}/>} />
+
+            <Route path="/pickDay" render={(props) =>
+            <Calendar {...props} state={this.state} handleDayClick={this.handleDayClick}
+            handleTime={this.handleTime}  /> }/>
+
             <Route path='/micuenta' render={(props) =>
             <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
             getUserInfo={this.getUserInfo}/>} />
+
           </Switch>
         </div>
       </BrowserRouter>
