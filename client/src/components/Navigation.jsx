@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
+//import Stepper from './components/Stepper.jsx';
 class Navigation extends React.Component {
 
 render () {
@@ -20,6 +20,7 @@ render () {
       <div className="navbar-item">
       <NavLink to="/registro">Mi Cuenta</NavLink>
       <NavLink to="/pickDay">Order</NavLink>
+      <NavLink to="/Stepper">Steps</NavLink>
       </div>
       </div>
       </div>

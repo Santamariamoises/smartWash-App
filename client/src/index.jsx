@@ -11,8 +11,7 @@ import Calendar from "./calendar.jsx";
 import Form from "./form.jsx";
 import Home from './userHome.jsx';
 import $ from 'jquery';
-// import Payment from './components/payment.jsx'
-// import Calendar from "./components/calendar.jsx";
+import Stepper from './components/Stepper.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -113,9 +112,9 @@ class App extends React.Component {
             <Route exact path="/" component={About} />
            <Route path="/registro" component={Auth} />
            <Route path="/pickDay" component={Calendar} />
-            
-
+            <Route path="/Stepper" component={Stepper} />
           </Switch>
+
         </div>
       </BrowserRouter>
     )

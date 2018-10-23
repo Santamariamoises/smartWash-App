@@ -89,7 +89,7 @@ class Home extends Component {
             </div>
             <h2> My laundry status </h2>
 
-            //<ProgressMobileStepper />
+          
 
           </div>
 

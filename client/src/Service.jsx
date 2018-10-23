@@ -65,15 +65,15 @@ class Service extends Component {
             onChange={ (event) => this.updateResults(event, 'weight') }/>
           <h6><label htmlFor="radio_buttons" className="font-weight-bold d-block p-2 bg-primary text-black">Select Service</label></h6>
           <ul id="radio_buttons" className="custom-control custom-radio">
-            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Economic $90 PerKg plus Tax</h1>
+            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Economic $80 PerKg plus Tax</h1>
             <br></br>
             <InputRadio updateResults={this.updateResults} service_speed={this.state.service_speed} days="5" />
             <br></br>
-            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Standard $150 PerKg plus Tax</h1>
+            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Standard $100 PerKg plus Tax</h1>
             <br></br>
             <InputRadio updateResults={this.updateResults} service_speed={this.state.service_speed} days="3" />
             <br></br>
-            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Express $250 PerKg plus Tax</h1>
+            <h1 className="font-weight-bold d-block p-2 bg-primary text-black">Express $120 PerKg plus Tax</h1>
             <br></br>
             <InputRadio updateResults={this.updateResults} service_speed={this.state.service_speed} days="2" />
           </ul>

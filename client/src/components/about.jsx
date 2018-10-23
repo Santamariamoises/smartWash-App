@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class About extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ class About extends React.Component {
     fresh and folded. We take care of your laundry so you can spend
     your time where and when you want.
     Laundry Time shouldn't interrupt your Fun Time!</h1>
-
+  
     </div>
     )
   }

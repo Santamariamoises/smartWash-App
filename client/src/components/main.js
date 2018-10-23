@@ -2,36 +2,25 @@ export function calculate_shipping(weight = 0, days = 5) {
 
   days = parseFloat(days);
 
-  let cost_per_kilogram;
+ let weight_kg = parseFloat(weight);
   let shipping_cost_multiplier;
   let current_date = new Date();
   let ms = current_date.getTime();
   let single_day_in_ms = 24 * 60 * 60 * 1000;
   let shipping_time_ms = ms;
   let deliveryDate;
+ // multiply input weight by 16 to obtain ounces
   let shipping_cost_pesos;
-  let weight_in_kilograms = parseFloat(weight); // multiply input weight by 16 to obtain ounces
 
   // create shipping multiplier depending on selected shipping speed
   if (days === 3) {
-    shipping_cost_multiplier = 110;
+    shipping_cost_multiplier = 100;
   } else if (days === 2) {
-    shipping_cost_multiplier = 160;
+    shipping_cost_multiplier = 120;
   } else {
     shipping_cost_multiplier = 80;
-  }
-
-  // determine cost per ounce, based on weight ranges and shipping multiplier
-  if (weight_in_kilograms < 1) {
-    cost_per_kilogram = shipping_cost_multiplier ;
-  } else if (weight_in_kilograms > 2) {
-    cost_per_kilograms = shipping_cost_multiplier;
-  } else {
-    cost_per_kilograms = shipping_cost_multiplier;
-  }
-
-  // determine actual shipping cost of weight * cost per ounce * 0.01 to convert to dollars.
-  shipping_cost_pesos = (cost_per_kilograms * weight_in_kilograms * 0.01).toFixed(2);
+}
+ shipping_cost_pesos = ( weight_kg * shipping_cost_multiplier);
 
   // determine if today is sunday, if so add one day (in MS) to the shipping time total (in MS)
   if (current_date.getDay() === 0) {
@@ -81,10 +70,8 @@ export function calculate_shipping(weight = 0, days = 5) {
     monthNames[deliveryDate.getMonth()] + ' ' +
     deliveryDate.getDate() + ', ' +
     deliveryDate.getFullYear();
-
   // create object to be returned that includes all values needed to build the display
   return {
-    weight_kg: weight_in_kilograms,
     weight_kg: weight,
     service_speed: days,
     pickUp_date: formatted_current_date_string,

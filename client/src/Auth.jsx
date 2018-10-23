@@ -40,7 +40,7 @@ class Auth extends Component {
     return (
      <div>
         <h1> SmartWash </h1>
-     {this.props.state.user ?  ( <Redirect to="/micuenta"/> ) : (<Login />)}
+    
      </div>
 )}
 }
