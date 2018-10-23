@@ -85,12 +85,10 @@ class Home extends Component {
             <Button onClick={this.logout}>Logout</Button>
             </p>
             <div>
-            <button><NavLink to='/Form'>Place Order</NavLink></button>
+            <button className="btn btn-info"><NavLink to='/Form'>Place Order</NavLink></button>
             </div>
             <h2> My laundry status </h2>
-
             <Status/>
-
           </div>
 
 

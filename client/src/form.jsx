@@ -1,7 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import { NavLink } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 class Form extends React.Component {
   constructor(props) {
@@ -174,10 +173,12 @@ getUserInfo2() {
           <option>Dry-clean</option>
           <option>Ironed and folded</option>
         </select>
+
+        <br></br>
         <button className="btn btn-primary mb-2" onClick={this.add}>Crear Orden</button>
       </form>
-
-      <Button bsStyle="info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></Button>
+        <br></br>
+      <button className="btn btn-info"><NavLink to ='/pickDay'>Ordenar ahora</NavLink></button>
     </div>);
   }
 }

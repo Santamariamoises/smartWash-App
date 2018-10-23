@@ -23,13 +23,13 @@ const Map = compose(
 
             <GoogleMap
                 defaultZoom={12}
-                defaultCenter={{ lat:19.4222496, lng:-99.1740582}}
+                defaultCenter={{ lat:19.4222391, lng:-99.1746641}}
                 options={{streetViewControl: true, mapTypeControl: false}}
             >
 
                   <Marker
                 title={'Aqui estás'}
-                position={{ lat: 19.4222496, lng: -99.1740635 }}
+                position={{ lat: 19.4222391, lng: -99.1746641 }}
                 animation= {google.maps.Animation.DROP}
                 icon={'/drop.png'}
                 draggable={true}

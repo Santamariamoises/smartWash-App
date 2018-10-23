@@ -50,6 +50,8 @@ this.added = this.added.bind(this);
     value={this.state.times}
     onChange={this.handleTime}
     type="select"
+    className="catInput radius form-control form-control-md"
+    className="w-20 p-1"
     >
       <option>9:00 a.m.</option>
       <option>9:30 a.m.</option>
@@ -71,7 +73,7 @@ this.added = this.added.bind(this);
       <option>5:30 p.m.</option>
       <option>6:00 p.m.</option>
     </select>
-      <button onClick={this.added}>Set up Time</button>
+      <button className="btn btn-primary" onClick={this.added}>Set up Time</button>
   </div>
     )
   }
