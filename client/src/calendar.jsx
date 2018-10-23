@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Time from './components/time.jsx'
 import Map from './components/map.jsx'
 import { NavLink } from 'react-router-dom';
-import Payment from './components/payment.jsx';
+// import Payment from './components/payment.jsx';
 
 export default class Calendar extends React.Component {
   constructor(props) {
@@ -41,7 +41,7 @@ export default class Calendar extends React.Component {
         <Time />
         <Map />
         <br></br>
-        <Payment />
+        <button><NavLink to ='/checkout'>Pagar</NavLink></button>
       </div>
     );
   }

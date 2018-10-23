@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Auth from './Auth.jsx';
 import fire from "./components/fire.jsx";
 import Navigation from "./components/Navigation.jsx";
+import checkOut from "./components/checkOut.jsx";
 import About from "./components/about.jsx";
 import bootstrap from 'bootstrap';
 import Calendar from "./calendar.jsx";
@@ -177,7 +178,9 @@ class App extends React.Component {
         <div>
         <Navigation />
           <Switch>
-            <Route exact path="/" component={About} />
+            <Route path="/" component={About} exact />
+
+            <Route path="/checkout" component={checkOut} />
 
             <Route path="/registro" render={(props) =>
               <Auth{...props} state={this.state} authListener={this.authListener}/>} />
@@ -191,6 +194,7 @@ class App extends React.Component {
             <Route path='/micuenta' render={(props) =>
             <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
             getUserInfo={this.getUserInfo}/>} />
+
           </Switch>
         </div>
       </BrowserRouter>
