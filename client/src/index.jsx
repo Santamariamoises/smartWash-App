@@ -32,6 +32,7 @@ class App extends React.Component {
       specialInd: '',
       service: 'Laundry',
       time: '',
+      dates: null,
     }
     this.getUserInfo = this.getUserInfo.bind(this);
     this.getUsersOrders = this.getUsersOrders.bind(this);
@@ -39,8 +40,14 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.addOrder = this.addOrder.bind(this);
     //this.add = this.add.bind(this);
+    this.handleDayClick = this.handleDayClick.bind(this);
   }
 
+  handleDayClick(day, { selected }) {
+    this.setState({
+      dates: selected ? undefined : day,
+    });
+  }
       getUserInfo() {
      $.ajax({
        url: '/users/',
@@ -107,9 +114,15 @@ class App extends React.Component {
         const usersOrders = data[i];
       }
     }
+    if (usersOrders !== undefined){
     this.setState({
       userOrders: usersOrders
     })
+  } else{
+    this.setState({
+      userOrders: "Aún no tienes una orden, ¡Ordena ahora!"
+    })
+  }
    },
    error:(xhr,err) => {
      console.log('la cagaste desde el fronts orders',err)
@@ -172,7 +185,9 @@ class App extends React.Component {
             <Route path='/Form' render={(props) =>
             <Form {...props} state={this.state}  handleChange={this.handleChange}/>} />
 
-            <Route path="/pickDay" component={Calendar} />
+            <Route path="/pickDay" render={(props) =>
+            <Calendar {...props} state={this.state} handleDayClick={this.handleDayClick}/> }/>
+
             <Route path='/micuenta' render={(props) =>
             <Home {...props} state={this.state}  getUsersOrders={this.getUsersOrders}
             getUserInfo={this.getUserInfo}/>} />
